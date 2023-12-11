@@ -98,7 +98,7 @@
             <p  class="text-center m-2 font-bold text-xl">ó</p> -->
          
             <button class="w-full col-span-5 px-10 py-3 bg-gray-900 hover:bg-gray-900 text-stone-50"
-                data-modal-target="modalPersonalize" data-modal-toggle="modalPersonalize" type="button" style='display:none;'>
+                data-modal-target="modalPersonalize" data-modal-toggle="modalPersonalize" type="button">
                 Personaliza tu producto
             </button>
             <br>
@@ -204,10 +204,10 @@
 
                                     <div class="flex">
                                         <div class="flex-1 w-50 bg-stone-300 p-2 mr-2 cursor-pointer" id="logo1">
-                                            <img src="{{asset('img/anahuac-logo.png')}}" alt="logo" class="w-30" id="">
+                                            <img src="{{asset('img/logo-color.png')}}" alt="logo" class="w-30" id="">
                                         </div>
                                         <div class="flex-1 w-50 bg-stone-300 p-2 cursor-pointer" id="logo2">
-                                            <img src="{{asset('img/anahuac-logo2.png')}}" alt="logo" class="w-30">
+                                            <img src="{{asset('img/logo-white.png')}}" alt="logo" class="w-30">
                                         </div>
                                     </div>
                                     
@@ -382,8 +382,8 @@
        /*  Obtener de path de imagenes */
         var imageURL = "{{ $product->images != '[]'?  $product->images[0]->image_url : '' }}";
         var productID = "{{ $product->id }}";
-        var logo1 = "{{asset('img/anahuac-logo.png')}}";
-        var logo2 = "{{asset('img/anahuac-logo2.png')}}";
+        var logo1 = "{{asset('img/logo-color.png')}}";
+        var logo2 = "{{asset('img/logo-white.png')}}";
         if(imageURL.startsWith("https://catalogodeproductos.promolife.lat/")){
             imageURL = imageURL.slice(41);
         }
