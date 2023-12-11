@@ -8,7 +8,7 @@
             <svg width="25px" height="25px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 
                 <defs>
-                <style>.cls-1{fill:none;stroke:#FF5900;stroke-miterlimit:10;stroke-width:1.91px;}</style>
+                <style>.cls-1{fill:none;stroke:#FFFFFF;stroke-miterlimit:10;stroke-width:1.91px;}</style>
                 </defs>
                 <g id="cart">
                 <circle class="cls-1" cx="10.07" cy="20.59" r="1.91"/>

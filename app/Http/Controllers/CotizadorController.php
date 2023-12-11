@@ -38,27 +38,48 @@ class CotizadorController extends Controller
     public function index()
     {
         $valores = [];
-        for ($x = 0; $x < 6; $x++) {
+        for ($x = 0; $x < 100; $x++) {
             $num_aleatorio = rand(1, 14000);
             array_push($valores, $num_aleatorio);
+        }
+
+        $valores2 = [];
+        for ($x = 0; $x < 100; $x++) {
+            $num_aleatorio = rand(1, 14000);
+            array_push($valores2, $num_aleatorio);
         }
 
         // Obtener los banner visibles, del primero al último
         $banners = Banner::where('visible', true)->orderBy('created_at', 'desc')->get();
 
-        $latestProducts = Product::where('provider_id', '1982')
-            ->orderBy('created_at', 'desc') 
-            ->limit(6) 
-            ->get();
-
+        $getLatestProducts = Product::whereIn('id', $valores2)->get();
         $latestCategorias = Category::withCount('productCategories')
             ->orderBy('product_categories_count', 'DESC')
             ->where('family', 'not like', '%textil%')
             ->limit(6)
             ->get();
-        $moreProducts = Product::where('provider_id', '1982')
-            ->take(6) 
-            ->get();
+        $getmoreProducts = Product::whereIn('id', $valores)->get();
+
+        $moreProducts = [];
+        $latestProducts = [];
+        $validColorIds = [2, 3, 12, 13, 41, 44, 48, 53, 54, 58, 60, 62, 63, 68, 69, 70, 78, 81];
+
+        foreach ($getmoreProducts as  $getmoreProduct) {
+            if (isset($getmoreProduct->color->id)) {
+                if (in_array($getmoreProduct->color->id, $validColorIds) && count($moreProducts) < 6) {
+                    array_push($moreProducts, $getmoreProduct);
+                }
+            }
+        }
+
+        foreach ($getLatestProducts as  $getmoreProduct2) {
+            if (isset($getmoreProduct2->color->id)) {
+                if (in_array($getmoreProduct2->color->id, $validColorIds) && count($latestProducts) < 6) {
+                    array_push($latestProducts, $getmoreProduct2);
+                }
+            }
+        }
+
         return view('home', compact('latestProducts', 'latestCategorias', 'moreProducts', 'banners'));
     }
 

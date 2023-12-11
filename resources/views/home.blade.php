@@ -53,7 +53,7 @@
         </button>
     </div>
     <div class="container mx-auto max-w-7xl">
-        <div class="w-full bg-gray-800">
+        <div class="w-full bg-primary">
             <div class="container mx-auto max-w-7xl py-1">
                 <div class="flex justify-center">
                     <span class="text-center text-white">PRODUCTOS MÁS VENDIDOS
@@ -64,7 +64,7 @@
         <div class="container mx-auto max-w-7xl py-8 bg-white">
             <div class="flex flex-wrap justify-between">
                 @foreach ($latestProducts as $product)
-                    <a href="{{ route('show.product', ['product' => $product->id]) }}" class="flex items-center justify-center text-center overflow-hidden" style="border: solid 2px orange !important; width: 180px; height: 180px;">
+                    <a href="{{ route('show.product', ['product' => $product->id]) }}" class="flex items-center justify-center text-center overflow-hidden" style=" width: 180px; height: 180px;">
                         <img src="{{ isset($product->firstImage->image_url) ? $product->firstImage->image_url : asset('/img/default.jpg') }}" alt="" srcset="" class="max-h-40 w-auto overflow-hidden">
                     </a>
                 @endforeach
@@ -72,7 +72,7 @@
         </div>
         <div class="w-full bg-gray-800">
             <div class="container mx-auto max-w-7xl py-1">
-                <div class="flex justify-center bg-gray-800">
+                <div class="flex justify-center bg-primary">
                     <span class="text-center text-white p-1">CATEGORÍAS
                     </span>
                 </div>
@@ -81,7 +81,7 @@
         <div class="container mx-auto max-w-7xl py-8 px-4">
             <div class="flex flex-wrap justify-between">
 
-                <a href="{{ route('categoryfilter', ['category' => 5]) }}" class="transition-transform transform hover:scale-105">
+<!--                 <a href="{{ route('categoryfilter', ['category' => 5]) }}" class="transition-transform transform hover:scale-105">
                     <div class="w-40 h-40 bg-white shadow-lg ">
                         <img src="{{ asset('img/textiles.png')}}" alt="Imagen" class="w-full h-full object-cover rounded-md">
                     </div>
@@ -109,22 +109,23 @@
                     <div class="w-40 h-40 bg-white shadow-lg ">
                         <img src="{{ asset('img/banners.png')}}" alt="Imagen" class="w-full h-full object-cover rounded-md">
                     </div>
-                </a>
+                </a> -->
 
-               {{--  @foreach ($latestCategorias as $cat)
-                    <div>
-                        <div
-                            class="border border-primary  bg-slate-50 hover:bg-slate-100 transition-colors rounded-full shadow-lg w-40 h-40 flex justify-center items-center text-center cursor-pointer">
-                                <a href="{{ route('show.product', ['product' => $product->id]) }}" class="flex items-center justify-center max-h-40 w-auto text-center overflow-hidden" style="border: solid 2px orange !important;">
-                                    <img src="{{ $product->firstImage->image_url }}" alt="" srcset="" class="h-40 w-40 object-cover">
-                                </a>
-                        </div>
+                @foreach ($latestCategorias as $cat)
+                  
+                    <div
+                        class="border border-primary  bg-slate-50 hover:bg-slate-100 transition-colors rounded-full shadow-lg w-40 h-40 flex justify-center items-center text-center cursor-pointer">
+                        <a href="{{ route('categoryfilter', ['category' => $cat->id]) }}"
+                            class="bg-[#161B2F] font-bold text-white uppercase text-sm px-3 py-2 w-4/5">
+                            {{ $cat->family }}
+                        </a>
                     </div>
-                @endforeach --}}
+                    
+                @endforeach
 
             </div>
         </div>
-        <div class="w-full bg-gray-800">
+        <div class="w-full bg-primary">
             <div class="container mx-auto max-w-7xl py-1">
                 <div class="flex justify-center">
                     <span class="text-center text-white">MÁS PRODUCTOS
@@ -137,7 +138,7 @@
                 @foreach ($moreProducts as $product)
                     @if ($product->firstImage)
                         <a href="{{ route('show.product', ['product' => $product->id]) }}" 
-                            class="max-h-40 w-auto text-center overflow-hidden" style="border: solid 2px orange !important;">
+                            class="max-h-40 w-auto text-center overflow-hidden">
                             <img src="{{ $product->firstImage->image_url }}" alt="" srcset=""
                                 class="h-40 w-40 " style="object-fit: scale-down;">
                         </a>

@@ -1,9 +1,9 @@
 <div  class="fixed top-0 left-0 right-0 z-50">
     
-    <nav class="w-full flex justify-between py-2 px-12 items-center flex-wrap md:flex-nowrap px-3 md:py-1 bg-white" >
+    <nav class="w-full flex justify-between py-2 px-12 items-center flex-wrap md:flex-nowrap px-3 md:py-1 bg-primary" >
         <div class="w-3/12">
             <a href="{{ route('index') }}">
-                <img src="{{asset('img/logo-anahuac.png')}}"
+                <img src="{{asset('img/logo-white.png')}}"
                     style="object-fit: cover;"
                     alt="logo" class="w-24 p-2 ml-12">
             </a>
@@ -78,10 +78,10 @@
                                     class="text-primary hover:text-primary focus:ring-4 focus:outline-none p-1 font-medium focus:rounded text-lg text-center inline-flex items-center"
                                     type="button">
                                     <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M5 21C5 17.134 8.13401 14 12 14C15.866 14 19 17.134 19 21M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z" stroke="#FF5900" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M5 21C5 17.134 8.13401 14 12 14C15.866 14 19 17.134 19 21M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                     </svg>
 
-                                    <p class="ml-2 text-lg text-orange-500 font-semibold">{{ strtoupper(auth()->user()->name) }}</p>
+                                    <p class="ml-2 text-lg text-white font-semibold">{{ strtoupper(auth()->user()->name) }}</p>
 
                                 </button>
                                 
@@ -91,7 +91,7 @@
                     @endif
                 </div>
                 <div>
-                    <p class="mt-8 text-lg text-orange-500 font-semibold"><a href="{{ route('compras') }}">MIS COMPRAS</a></p>
+                    <p class="mt-7 text-lg text-white font-semibold"><a href="{{ route('compras') }}">MIS COMPRAS</a></p>
                     
                 </div>
                 <div class="flex">
@@ -102,7 +102,7 @@
 
                                     <defs>
                                     
-                                    <style>.cls-1{fill:none;stroke:#020202;stroke-miterlimit:10;stroke-width:1.91px;}</style>
+                                    <style>.cls-1{fill:none;stroke:#FFFFFF;stroke-miterlimit:10;stroke-width:1.91px;}</style>
                                     
                                     </defs>
                                     
@@ -378,22 +378,5 @@
        
     </nav>
 
-    <div class="w-full bg-[#FF5900] h-16 ">
-        <div class="flex">
-            <div class="w-2/3 mx-5">
-                <div class="flex items-center justify-between ">
-                    <a href="{{ route('catalogo')}}"><p class="text-white mt-5 font-bold">CATÁLOGO </p></a>
-                    <a href="{{ route('catalogo')}}"><p class="text-white mt-5 font-bold">MEJORES DESCUENTOS</p></a>
-                    <a href="{{ route('catalogo')}}"><p class="text-white mt-5 font-bold">RECIÉN LLEGADO</p></a>
-                    <a href="{{ route('catalogo')}}"><p class="text-white mt-5 font-bold">MEJOR CALIFICADO</p></a>
-                    <a href="{{ route('catalogo')}}"><p class="text-white mt-5 font-bold">MEJOR CALIFICADO</p></a>
-                </div>
-            </div>
-            <div class="w-1/3">
-                <p class="text-white font-bold text-right mt-5 mr-8">COMPRA <b class="text-black">$1,500</b> Y OBTÉN EL ENVÍO GRATIS</p>
-            </div>
-        </div>
-    </div>
        
-
 </div>
