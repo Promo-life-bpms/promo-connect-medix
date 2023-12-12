@@ -30,7 +30,7 @@
         <div class="w-full bg-white">
             @include('layouts.components.navbar')
         </div>
-        <div class="flex-grow w-full" style="margin-top:102px;">
+        <div class="flex-grow w-full">
             @yield('content')
         </div>
         <div class="py-5 w-full bg-primary">

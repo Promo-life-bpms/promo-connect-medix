@@ -996,6 +996,9 @@ input:checked + .toggle-bg {
 .bottom-0 {
   bottom: 0px;
 }
+.bottom-4 {
+  bottom: 1rem;
+}
 .bottom-5 {
   bottom: 1.25rem;
 }
@@ -1017,6 +1020,9 @@ input:checked + .toggle-bg {
 .right-2\.5 {
   right: 0.625rem;
 }
+.right-4 {
+  right: 1rem;
+}
 .top-0 {
   top: 0px;
 }
@@ -1028,12 +1034,6 @@ input:checked + .toggle-bg {
 }
 .top-5 {
   top: 1.25rem;
-}
-.bottom-4 {
-  bottom: 1rem;
-}
-.right-4 {
-  right: 1rem;
 }
 .z-0 {
   z-index: 0;
@@ -1191,6 +1191,14 @@ input:checked + .toggle-bg {
 }
 .mr-auto {
   margin-right: auto;
+}
+.ms-3 {
+  -webkit-margin-start: 0.75rem;
+          margin-inline-start: 0.75rem;
+}
+.ms-auto {
+  -webkit-margin-start: auto;
+          margin-inline-start: auto;
 }
 .mt-1 {
   margin-top: 0.25rem;
@@ -1895,13 +1903,13 @@ input:checked + .toggle-bg {
   --tw-bg-opacity: 1;
   background-color: rgb(17 24 39 / var(--tw-bg-opacity));
 }
+.bg-green-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(14 159 110 / var(--tw-bg-opacity));
+}
 .bg-green-600 {
   --tw-bg-opacity: 1;
   background-color: rgb(5 122 85 / var(--tw-bg-opacity));
-}
-.bg-orange-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 90 31 / var(--tw-bg-opacity));
 }
 .bg-primary {
   --tw-bg-opacity: 1;
@@ -1983,10 +1991,6 @@ input:checked + .toggle-bg {
 .bg-zinc-300 {
   --tw-bg-opacity: 1;
   background-color: rgb(212 212 216 / var(--tw-bg-opacity));
-}
-.bg-green-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(14 159 110 / var(--tw-bg-opacity));
 }
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
@@ -2155,6 +2159,9 @@ input:checked + .toggle-bg {
 }
 .pr-2 {
   padding-right: 0.5rem;
+}
+.pr-20 {
+  padding-right: 5rem;
 }
 .pr-4 {
   padding-right: 1rem;
@@ -2632,9 +2639,9 @@ input:checked + .toggle-bg {
   background-color: rgb(101 163 13 / var(--tw-bg-opacity));
 }
 
-.hover\:bg-orange-700:hover {
+.hover\:bg-primary:hover {
   --tw-bg-opacity: 1;
-  background-color: rgb(180 52 3 / var(--tw-bg-opacity));
+  background-color: rgb(19 70 146 / var(--tw-bg-opacity));
 }
 
 .hover\:bg-primary-dark:hover {
@@ -3209,6 +3216,10 @@ input:checked + .toggle-bg {
 
   .md\:border-t-0 {
     border-top-width: 0px;
+  }
+
+  .md\:p-5 {
+    padding: 1.25rem;
   }
 
   .md\:px-28 {

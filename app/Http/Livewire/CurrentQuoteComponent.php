@@ -31,6 +31,8 @@ class CurrentQuoteComponent extends Component
     public $nombre, $telefono, $direccion, $quote_id;
 
     public $pdfDescargado = false;
+    
+    public $cantidades;
 
     protected $listeners = ['updateProductCurrent' => 'resetData'];
 
@@ -47,6 +49,10 @@ class CurrentQuoteComponent extends Component
         } else {
             $this->value = 0;
             $this->type = '';
+        }
+
+        foreach ($this->cotizacionActual as $quote) {
+            $this->cantidades[$quote->id] = $quote->cantidad;
         }
     }
 
@@ -84,6 +90,20 @@ class CurrentQuoteComponent extends Component
     {
         $this->quoteEdit = CurrentQuoteDetails::find($quote_id);
         $this->dispatchBrowserEvent('show-modal-edit');
+    }
+
+    public function updateQuote($quoteId)
+    {
+        $actualQuote = CurrentQuoteDetails::where('id',$quoteId)->get()->first();
+        $precio_total = number_format(floatval($actualQuote->precio_unitario) * floatval($this->cantidades[$quoteId]), 2, '.', '');
+
+        CurrentQuoteDetails::where('id',$quoteId)->update([
+            'cantidad' => $this->cantidades[$quoteId],
+            'precio_total' => $precio_total
+        ]);
+
+        return redirect()->to('/carrito');
+
     }
 
     public function show($quote_id)
