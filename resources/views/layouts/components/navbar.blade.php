@@ -68,7 +68,7 @@
 
        
 
-        <div class="w-5/12">
+        <div class="w-5/12 mb-4">
             <div class="flex justify-around">
                 <div>
                     @if (auth()->user())
