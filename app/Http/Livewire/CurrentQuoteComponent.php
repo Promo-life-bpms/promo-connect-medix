@@ -94,14 +94,16 @@ class CurrentQuoteComponent extends Component
 
     public function updateQuote($quoteId)
     {
-        $actualQuote = CurrentQuoteDetails::where('id',$quoteId)->get()->first();
-        $precio_total = number_format(floatval($actualQuote->precio_unitario) * floatval($this->cantidades[$quoteId]), 2, '.', '');
+        if(intval($this->cantidades[$quoteId]) > 0){
+            $actualQuote = CurrentQuoteDetails::where('id',$quoteId)->get()->first();
+            $precio_total = number_format(floatval($actualQuote->precio_unitario) * floatval($this->cantidades[$quoteId]), 2, '.', '');
 
-        CurrentQuoteDetails::where('id',$quoteId)->update([
-            'cantidad' => $this->cantidades[$quoteId],
-            'precio_total' => $precio_total
-        ]);
-
+            CurrentQuoteDetails::where('id',$quoteId)->update([
+                'cantidad' => $this->cantidades[$quoteId],
+                'precio_total' => $precio_total
+            ]);
+        }
+       
         return redirect()->to('/carrito');
 
     }

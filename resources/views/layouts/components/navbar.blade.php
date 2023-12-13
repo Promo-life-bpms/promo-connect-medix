@@ -1,7 +1,7 @@
 <div  class="fixed top-0 left-0 right-0 z-50">
     
-    <nav class="w-full flex justify-between py-2 px-12 items-center flex-wrap md:flex-nowrap px-3 md:py-1 bg-primary" >
-        <div class="w-3/12">
+    <nav class="w-full flex justify-between py-2 px-4 md:px-12 items-center flex-wrap bg-primary" >
+        <div class="w-full md:w-3/12 mb-2 md:mb-0">
             <a href="{{ route('index') }}">
                 <img src="{{asset('img/logo-white.png')}}"
                     style="object-fit: cover;"
@@ -50,7 +50,7 @@
         </div>
 
 
-        <div class="w-5/12">
+        <div class="w-full md:w-3/12 mb-2 md:mb-0">
             <div class="flex justify-center pr-10 ">
 
                 @if (!request()->is('administrador/*', 'administrador'))
@@ -68,7 +68,7 @@
 
        
 
-        <div class="w-5/12 mb-4">
+        <div class="w-full md:w-6/12">
             <div class="flex justify-around">
                 <div>
                     @if (auth()->user())
@@ -92,6 +92,10 @@
                 </div>
                 <div>
                     <p class="mt-7 text-lg text-white font-semibold"><a href="{{ route('compras') }}">MIS COMPRAS</a></p>
+                    
+                </div>
+                <div>
+                    <p class="mt-7 text-lg text-white font-semibold"><a href="{{ route('misCotizaciones') }}">MIS COTIZACIONES</a></p>
                     
                 </div>
                 <div class="flex">

@@ -52,10 +52,14 @@
                         </div>
                         <div class="flex flex-col items-end space-y-2">
 
-                            @php
+                            <!-- @php
                                 $precioTotal = round(($quote->precio_total / ((100 - config('settings.utility_aditional')) / 100)) * 1.16, 2);
+                            @endphp -->
+
+                            @php
+                                $precioTotal = ($quote->precio_total);
                             @endphp
-                            <p class="font-bold text-lg">$ {{ number_format($precioTotal, 2, '.', ',') }}</p>
+                            <p class="font-bold text-lg">$ {{ number_format($precioTotal, 2, '.', ',') }} + IVA</p>
                                 <!-- Modal toggle -->
                                 <button data-modal-target="edit-modal-{{$quote->id}}" data-modal-toggle="edit-modal-{{$quote->id}}" class=" bg-primary text-white block w-full text-center text-sm underline rounded-sm font-semibold py-2 px-4" type="button">
                                     Editar cotización
@@ -82,8 +86,7 @@
                                                 <!-- Modal body -->
                                                 <div class="p-4 md:p-5 space-y-4">
                                                     <label for="">Cantidad:</label><br>
-                                                    <input type="number" value='{{$quote->cantidad}}' wire:model="cantidades.{{ $quote->id }}">
-                                                    
+                                                    <input type="number" value='{{$quote->cantidad}}' wire:model="cantidades.{{ $quote->id }}" min="1">  
                                                 </div>
                                                 <!-- Modal footer -->
                                                 <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">

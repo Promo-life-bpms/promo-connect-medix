@@ -25,7 +25,7 @@
             <div class="w-1/2 mr-8">
                 <!-- Card dentro del primer elemento -->
                 <div class="bg-white p-4 rounded shadow">
-                    <h2 class="text-xl font-bold mb-2">N° de compras:</h2>
+                    <h2 class="text-xl font-bold mb-2">N° de cotización:</h2>
                     <p class="text-bold text-4xl">{{count($quotes) }}</p>
                 </div>
             </div>
