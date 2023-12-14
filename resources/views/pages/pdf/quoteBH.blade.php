@@ -40,7 +40,7 @@
                 
                 <td style="text-align: left; width: 50%;">
                     <div style="margin-left:60px; display:flex; margin-top:30px;">
-                        <img src="img/anahuac-logo.png" style="width: 60px;" >
+                        <img src="img/logo-color.png" style="width: 60px;" >
                     </div>
 
                     <p style="margin-left:60px; margin-top:10px;">Fecha: <b>{{$date}}</b></p>
@@ -88,7 +88,9 @@
                 
                 $logo = $productImage->image_url;
 
-                $image64 = base64_encode(file_get_contents($logo));
+                <!-- $image64 = base64_encode(file_get_contents($logo)); -->
+
+                $image64 = '';
 
             @endphp
 
