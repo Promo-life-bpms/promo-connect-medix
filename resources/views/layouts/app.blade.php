@@ -53,7 +53,7 @@
         <div id="content" class="main-content">
             <div class="layout-px-spacing">
 
-                <div class="row layout-top-spacing">
+                <div class="row layout-top-spacing" >
                     @yield('content')
                 </div>
 
