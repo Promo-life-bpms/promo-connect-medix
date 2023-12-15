@@ -88,15 +88,27 @@
                 
                 $logo = $productImage->image_url;
 
-                <!-- $image64 = base64_encode(file_get_contents($logo)); -->
+                $filename = basename($logo);
 
-                $image64 = '';
+                $encodedFilename = rawurlencode($filename);
+
+                $encodedUrl = str_replace($filename, $encodedFilename, $logo);
+
+                $ch = curl_init($encodedUrl);
+
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+                $imageData = curl_exec($ch);
+
+                curl_close($ch);
+
+                $image64 = base64_encode($imageData);
 
             @endphp
 
                 <br>
                 <p style="margin-left:60px;">Cotizacion: <b>SQ-{{ $quote->id }}</b></p>
-               
+               <p style='font-size:6px;'>{{$encodedUrl}}</p>
                 <table border="1" >
                     <tr>
                         <th style="width:30%" >Imagen de Referencia</th>
