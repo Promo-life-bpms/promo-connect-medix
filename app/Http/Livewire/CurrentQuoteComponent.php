@@ -56,7 +56,7 @@ class CurrentQuoteComponent extends Component
                     $this->totalQuote = $this->totalQuote + 0;
                 }
             } else {
-                $this->totalQuote = $this->totalQuote + $productToSum->costo_total;
+                $this->totalQuote = $this->totalQuote + $productToSum->precio_total;
             }
         }
 
