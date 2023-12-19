@@ -34,27 +34,24 @@
             @yield('content')
         </div>
         <div class="py-5 w-full bg-primary">
-            
-            <div class="w-full flex justify-between items-center text-primary mt-4 ">
-                <div>
+            <div class="w-full flex flex-col sm:flex-row justify-between items-center text-primary mt-4">
+                <div class="mb-4 sm:mb-0">
                     <p class="ml-4 mr-4 text-xl font-bold text-white">CONTACTO: </p>
-                    <p class="ml-4 mr-4 text-lg text-white">EMAIL@EMAIL.COM</p>
-                    <p class="ml-4 mr-4 text-lg text-white">TELEFONO: 55 45 67 89 90</p>
+                    <p class="ml-4 mr-4 text-lg sm:text-base text-white">EMAIL@EMAIL.COM</p>
+                    <p class="ml-4 mr-4 text-lg sm:text-base text-white">TELEFONO: 55 45 67 89 90</p>
                 </div>
 
                 <div class="text-white">
-                    <img src="{{asset('img/logo-white.png')}}"
-                        style="object-fit: cover; width:100px;"
+                    <img src="{{ asset('img/logo-white.png') }}"
+                        style="object-fit: cover; width: 100px;"
                         alt="logo">
                 </div>
 
                 <div class="flex flex-col items-end">
                     <p class="ml-4 mr-4 text-xl font-bold text-white">TERMINOS Y CONDICIONES </p>
-                    <p class="ml-4 mr-4 text-lg text-white">POLITICA DE PRIVACIDAD </p>   
+                    <p class="ml-4 mr-4 text-lg sm:text-base text-white">POLITICA DE PRIVACIDAD </p>
                 </div>
-                
             </div>
-            
         </div>
         @role(['buyers-manager', 'buyer'])
             @livewire('soporte-component')

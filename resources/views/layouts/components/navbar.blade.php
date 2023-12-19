@@ -1,11 +1,11 @@
 <div  class="fixed top-0 left-0 right-0 z-50">
     
     <nav class="w-full flex justify-between py-2 px-4 md:px-12 items-center flex-wrap bg-primary" >
-        <div class="w-full md:w-3/12 mb-2 md:mb-0">
+        <div class="w-full md:w-1/12 mb-2 md:mb-0">
             <a href="{{ route('index') }}">
                 <img src="{{asset('img/logo-white.png')}}"
                     style="object-fit: cover;"
-                    alt="logo" class="w-24 p-2 ml-12">
+                    alt="logo" class="w-24 p-2 ">
             </a>
         </div>
        
@@ -68,12 +68,13 @@
 
        
 
-        <div class="w-full md:w-6/12">
-            <div class="flex justify-around">
-                <div>
+        <div class="w-full md:w-7/12">
+            <div class="flex flex-col md:flex-row justify-around">
+
+                <div class="mb-6 md:mb-0 md:mr-4 -mt-1">
                     @if (auth()->user())
                         <div class="text-black mt-6">
-                            <div class="flex">
+                            <div class="flex items-center">
                                 <button id="dropdownHoverButton" data-dropdown-toggle="dropdown"
                                     class="text-primary hover:text-primary focus:ring-4 focus:outline-none p-1 font-medium focus:rounded text-lg text-center inline-flex items-center"
                                     type="button">
@@ -81,52 +82,48 @@
                                         <path d="M5 21C5 17.134 8.13401 14 12 14C15.866 14 19 17.134 19 21M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                     </svg>
 
-                                    <p class="ml-2 text-lg text-white font-semibold">{{ strtoupper(auth()->user()->name) }}</p>
+                                    <p class="ml-2 text-base text-white font-semibold">{{ strtoupper(auth()->user()->name) }}</p>
 
                                 </button>
-                                
                             </div>
-                            
                         </div>
                     @endif
                 </div>
-                <div>
-                    <p class="mt-7 text-lg text-white font-semibold"><a href="{{ route('compras') }}">MIS COMPRAS</a></p>
-                    
+
+                <div class="mb-7 md:mt-7 md:mb-0 mx-2">
+                    <p class="text-base text-white font-semibold"><a href="{{ route('compras') }}">MIS COMPRAS</a></p>
                 </div>
-                <div>
-                    <p class="mt-7 text-lg text-white font-semibold"><a href="{{ route('misCotizaciones') }}">MIS COTIZACIONES</a></p>
-                    
+
+                <div class="mb-7 md:mt-7 md:mb-0 mx-2">
+                    <p class="text-base text-white font-semibold"><a href="{{ route('misCotizaciones') }}">MIS COTIZACIONES</a></p>
                 </div>
+
+                <div class="mb-7 md:mt-7 md:mb-0 mx-2">
+                    <p class="text-base text-white font-semibold"><a href="{{ route('misCotizaciones') }}">ESPECIALES</a></p>
+                </div>
+
                 <div class="flex">
                     @role(['buyers-manager', 'buyer'])
                         <a class="text-primary hover:text-primary mt-6" href="{{ route('catalogo') }}">
                             <div class="mt-1">
                                 <svg width="25px" height="25px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-
                                     <defs>
-                                    
                                     <style>.cls-1{fill:none;stroke:#FFFFFF;stroke-miterlimit:10;stroke-width:1.91px;}</style>
-                                    
                                     </defs>
-                                    
                                     <g id="handbag">
-                                    
                                     <path class="cls-1" d="M3.41,7.23H20.59a0,0,0,0,1,0,0v12a3.23,3.23,0,0,1-3.23,3.23H6.64a3.23,3.23,0,0,1-3.23-3.23v-12A0,0,0,0,1,3.41,7.23Z"/>
-                                    
                                     <path class="cls-1" d="M8.18,10.09V5.32A3.82,3.82,0,0,1,12,1.5h0a3.82,3.82,0,0,1,3.82,3.82v4.77"/>
-                                    
                                     </g>
-                                    
-                                    </svg>
+                                </svg>
                             </div>
                         </a>
-                        <div class=" mt-3" style="width: 2rem">
+                        <div class="md:mt-3 md:ml-2 mt-3" style="width: 2rem">
                             @livewire('count-cart-quote')
                         </div>
                     @endrole
+
                     @role('seller')
-                        <div class=" mt-8  ml-2" style="width: 2rem">
+                        <div class="md:mt-8 md:ml-2" style="width: 2rem">
                             @livewire('count-messages-support')
                         </div>
                     @endrole
@@ -142,19 +139,19 @@
                         <ul class="flex ">
                             <li>
                                 <a href="{{ route('seller.content') }}"
-                                    class="block px-4 py-2 text-white hover:text-primary-superlight text-lg">Banners</a>
+                                    class="block px-4 py-2 text-white hover:text-primary-superlight text-base">Banners</a>
                             </li>
                             <li>
                                 <a href="{{ route('seller.compradores') }}"
-                                    class="block px-4 py-2 text-lg text-white hover:text-primary-superlight">Compradores</a>
+                                    class="block px-4 py-2 text-base text-white hover:text-primary-superlight">Compradores</a>
                             </li>
                             <li>
                                 <a href="{{ route('seller.pedidos') }}"
-                                    class="block px-4 py-2 text-white hover:text-primary-superlight text-lg">Compras</a>
+                                    class="block px-4 py-2 text-white hover:text-primary-superlight text-base">Compras</a>
                             </li>
                             <li>
                                 <a href="{{ route('seller.muestras') }}"
-                                    class="block px-4 py-2 text-white hover:text-primary-superlight text-lg">Muestras</a>
+                                    class="block px-4 py-2 text-white hover:text-primary-superlight text-base">Muestras</a>
                             </li>
                         
 
