@@ -75,4 +75,10 @@ class CotizacionController extends Controller
         return response()->download(public_path($filename))->deleteFileAfterSend(true);
         
     }
+
+    public function special() {
+
+        
+        return view('pages.seller.special');
+    }
 }

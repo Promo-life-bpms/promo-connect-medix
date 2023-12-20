@@ -91,4 +91,7 @@ Route::middleware(['auth'])->group(function () {
     
     Route::post('/generar-cotizacion', [CotizacionController::class, 'generarPDF'])->name('generarPDF');
     Route::post('/descargar-cotizacion', [CotizacionController::class, 'downloadPDF'])->name('downloadPDF');
+
+    Route::get('/special', [CotizacionController::class, 'special'])->name('special');
+
 });
