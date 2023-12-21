@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\CurrentQuoteDetails;
 use App\Models\Quote;
 use App\Models\QuoteTechniques;
+use App\Models\SpecialRequest;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Dompdf\Dompdf;
@@ -78,7 +79,22 @@ class CotizacionController extends Controller
 
     public function special() {
 
+        $special_requests = SpecialRequest::all();
+
+        return view('pages.seller.special', compact('special_requests'));
         
-        return view('pages.seller.special');
+    }
+
+    public function specialStorage(Request $request) {
+
+        
+        $create_special_request = new SpecialRequest();
+        $create_special_request->description = '';
+        $create_special_request->file = '';
+        $create_special_request->image_reference = '';
+        $create_special_request->image_reference = 1;
+
+
+        
     }
 }

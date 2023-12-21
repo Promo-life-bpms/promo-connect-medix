@@ -93,5 +93,6 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/descargar-cotizacion', [CotizacionController::class, 'downloadPDF'])->name('downloadPDF');
 
     Route::get('/special', [CotizacionController::class, 'special'])->name('special');
+    Route::post('/special/storage', [CotizacionController::class, 'specialStorage'])->name('specialStorage');
 
 });
