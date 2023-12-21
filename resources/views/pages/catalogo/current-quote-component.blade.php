@@ -45,7 +45,23 @@
                         </div>
                         <div class="h-full text-center pr-20">
                             @if ($quote->logo)
-                                <img src="{{ asset('storage/logos/' . $quote->logo) }}" class="h-20 w-auto">
+                                <!-- Modal toggle -->
+                                <a data-modal-target="default-modal-{{$quote->id}}" data-modal-toggle="default-modal-{{$quote->id}}"  type="button">
+                                    <div class="transition-transform transform-gpu hover:scale-105 cursor-pointer">
+                                        <img src="{{ asset('storage/logos/' . $quote->logo) }}" class="h-20 w-auto">
+                                    </div>
+                                </a>
+
+                                <!-- Main modal -->
+                                <div id="default-modal-{{$quote->id}}" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                                    <div class="relative p-4 w-full max-w-2xl max-h-full">
+                                        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                                            <div class="p-4 md:p-5 flex items-center justify-center">
+                                                <img src="{{ asset('storage/logos/' . $quote->logo) }}" class="h-100 w-auto">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             @else
                                 <p class="text-center">Sin logo</p>
                             @endif
