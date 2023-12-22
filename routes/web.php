@@ -95,4 +95,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/special', [CotizacionController::class, 'special'])->name('special');
     Route::post('/special/storage', [CotizacionController::class, 'specialStorage'])->name('specialStorage');
 
+    Route::post('/special/update', [CotizacionController::class, 'specialUpdate'])->name('specialUpdate');
+
+
 });
