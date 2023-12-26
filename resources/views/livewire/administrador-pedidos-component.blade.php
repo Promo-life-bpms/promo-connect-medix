@@ -46,6 +46,7 @@
                         <th scope="col" class="px-3 py-2 md:px-6  md:py-3">
                             PRODUCTO
                         </th>
+                      
                         {{-- <th scope="col" class="px-3 py-2 md:px-6  md:py-3">
                             ESTATUS
                         </th> --}}
@@ -73,6 +74,7 @@
                                 {{ $muestra->product_name }}
 
                             </td>
+                          
                             {{-- <td class="px-6 py-4  hidden md:table-cell">
                                 {{ $muestra->status }}
 

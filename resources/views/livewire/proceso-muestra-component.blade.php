@@ -117,7 +117,11 @@
                 <div class="bg-stone-50 rounded-lg grid grid-cols-2 gap-x-6 p-4 lg:gap-x-0 mt-4">
                     <div class="grid grid-cols-1 gap-y-1">
                         <div>
-                            <strong>Direccion de Envio</strong>
+                            <strong>Detalles Adicionales</strong>
+                        </div>
+                        <div>
+                            <strong>Tipo de muestra:</strong>
+                            <span>{{ $muestra->type }}</span>
                         </div>
                         <div>
                             <strong>Nombre:</strong>
