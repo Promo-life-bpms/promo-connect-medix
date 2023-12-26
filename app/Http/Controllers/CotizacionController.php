@@ -130,40 +130,41 @@ class CotizacionController extends Controller
     public function specialUpdate(Request $request) {
 
         $find_special_request = SpecialRequest::where('id', $request->id)->get()->first();
-
         $pathImage = '';
         $pathFile = '';
 
-            if ($request->hasFile('image_reference')) {
-                $filenameWithExt = $request->file('image_reference')->getClientOriginalName();
-                $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-                $extension = $request->file('image_reference')->clientExtension();
-                $fileNameToStore = time(). $filename . '.' . $extension;
+        if ($request->hasFile('image_reference')) {
+            $filenameWithExt = $request->file('image_reference')->getClientOriginalName();
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            $extension = $request->file('image_reference')->clientExtension();
+            $fileNameToStore = time(). $filename . '.' . $extension;
 
-                Storage::delete($find_special_request->image_reference);
+            Storage::delete($find_special_request->image_reference);
 
-                $pathImage = $request->file('image_reference')->move('storage/special/img/', $fileNameToStore);
-            }else{
-                $pathImage = $find_special_request->image_reference;
-            }
+            $pathImage = $request->file('image_reference')->move('storage/special/img/', $fileNameToStore);
+
+        }else{
+            $pathImage = $find_special_request->image_reference == null ? '': $find_special_request->image_reference;
+        }
        
+        if ($request->hasFile('file')) {
+            $filenameWithExt = $request->file('file')->getClientOriginalName();
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            $extension = $request->file('file')->clientExtension();
+            $fileNameToStore = time(). $filename . '.' . $extension;
 
-            if ($request->hasFile('file')) {
-                $filenameWithExt = $request->file('file')->getClientOriginalName();
-                $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-                $extension = $request->file('file')->clientExtension();
-                $fileNameToStore = time(). $filename . '.' . $extension;
+            Storage::delete($find_special_request->file);
 
-                Storage::delete($find_special_request->file);
+            $pathFile = $request->file('file')->move('storage/special/files/', $fileNameToStore);
+        }else{
+            $pathFile = $find_special_request->file == null ? '': $find_special_request->file;
+        }
 
-                $pathFile = $request->file('file')->move('storage/special/files/', $fileNameToStore);
-            }else{
-                $pathFile = $find_special_request->file;
-
-            }
-        
-
-        DB::table('special_request')->where('id', $request->id);
+        DB::table('special_request')->where('id', $request->id)->update([
+            'description' => $request->description,
+            'file' => $pathFile,
+            'image_reference' => $pathImage,
+        ]);
 
         return back()->with('mensaje', 'Pedido especial creado con éxito');
 

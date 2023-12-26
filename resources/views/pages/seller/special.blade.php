@@ -105,7 +105,7 @@
                                 <td class="flex justify-center items-center"> 
 
                                     @if($special_request->image_reference !=null || $special_request->image_reference != '' )
-                                        <img src="{{ asset($special_request->image_reference) }}" alt="Imagen" width="100" height="100" class="pt-10">
+                                        <img src="{{ asset($special_request->image_reference) }}" alt="Imagen" width="100" height="100" class="pt-10" >
                                     @else
                                         <p>Sin imagen</p>
                                     @endif
@@ -114,7 +114,7 @@
                                     
                                 <td>
                                     @if($special_request->file !=null ||$special_request->file != '' )
-                                        <a href="{{$special_request->file}}" class="text-blue-500 font-bold no-underline">Ver archivo</a>
+                                        <a href="{{$special_request->file}}" class="text-blue-500 font-bold no-underline" target="__blank">Ver archivo</a>
                                     @else
                                         <p>Sin archivo</p>
                                     @endif
@@ -148,11 +148,12 @@
                                                     </button>
                                                 </div>
 
-                                                <form action="{{ route('specialStorage') }}" method="POST" enctype="multipart/form-data">
+                                                <form action="{{ route('specialUpdate') }}" method="POST" enctype="multipart/form-data">
                                                     @csrf
                                                     @method('POST')
                                                     
                                                     <div class="p-4 md:p-5 space-y-4">
+                                                        <input type="text" name="id" id="id" class="w-full p-2 border rounded-md" value="{{$special_request->id}}" hidden>
 
                                                         <div class="mb-4">
                                                             <label for="description" class="block text-gray-700 text-sm font-bold mb-2 text-start">Descripción</label>
