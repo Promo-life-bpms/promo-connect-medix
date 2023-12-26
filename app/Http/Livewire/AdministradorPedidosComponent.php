@@ -19,7 +19,7 @@ class AdministradorPedidosComponent extends Component
         $db = config('database.connections.mysql_catalogo.database');
         $userproducts = Muestra::join('users', 'users.id', 'muestras.user_id')
             ->join($db . ".products",  'muestras.product_id', $db . ".products.id")
-            ->select('users.name as user_name', 'products.name as product_name as product_name', 'muestras.updated_at', 'muestras.address',  'muestras.status', 'muestras.current_quote_id', 'muestras.id as id_muestra')
+            ->select('users.name as user_name', 'products.name as product_name as product_name', 'muestras.updated_at', 'muestras.address',  'muestras.status', 'muestras.current_quote_id', 'muestras.id as id_muestra', 'muestras.type as product_type')
             ->where("products.name",  "LIKE", "%" . $this->search . "%")
             ->orWhere("users.name", "LIKE", "%" . $this->search . "%")
             ->get();

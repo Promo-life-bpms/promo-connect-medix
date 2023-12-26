@@ -151,7 +151,7 @@ class CurrentQuoteComponent extends Component
                     'address' => $this->direccion,
                     'phone' => $this->telefono,
                     'name' => $this->nombre,
-                    'type' => $this->type_sample == null? 'virtual' : $this->type_sample,
+                    'type' => $this->type_sample == null? 'virtual sin logotipo' : $this->type_sample,
                     'product_id' => $ccd->product->id,
                     'status' => 1,
                     'current_quote_id' => $ccd->id,

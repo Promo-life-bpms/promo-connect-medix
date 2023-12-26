@@ -210,9 +210,10 @@
 
                 <div class="col-span-2 py-2 flex flex-coll">
                     <select id="type_sample" name="type_sample" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" wire:model="type_sample">
-                        <option value="virtual" selected>Muestra Virtual</option>
-                        <option value="fisica">Muestra Física</option>
-                        <option value="logotipo">Muestra Física con Logotipo</option>
+                        <option value="virtual sin logotipo" selected>Muestra virtual sin Logotipo</option>
+                        <option value="fisica sin logotipo">Muestra física sin Logotipo</option>
+                        <option value="virtual con logotipo" selected>Muestra virtual con logotipo</option>
+                        <option value="logotipo con logotipo">Muestra física con logotipo</option>
                     </select>
                 </div>
                 <div class="col-span-1 py-2 text-left">
