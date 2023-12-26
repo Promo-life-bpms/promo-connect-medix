@@ -28,7 +28,7 @@ class CurrentQuoteComponent extends Component
     public $value, $type;
     public $quoteEdit, $quoteShow;
 
-    public $nombre, $telefono, $direccion, $quote_id;
+    public $nombre, $telefono, $direccion, $quote_id, $type_sample;
 
     public $pdfDescargado = false;
     
@@ -138,6 +138,7 @@ class CurrentQuoteComponent extends Component
             'direccion' => 'required',
         ]);
 
+
         $msg = "";
         $error = false;
         try {
@@ -150,6 +151,7 @@ class CurrentQuoteComponent extends Component
                     'address' => $this->direccion,
                     'phone' => $this->telefono,
                     'name' => $this->nombre,
+                    'type' => $this->type_sample == null? 'virtual' : $this->type_sample,
                     'product_id' => $ccd->product->id,
                     'status' => 1,
                     'current_quote_id' => $ccd->id,

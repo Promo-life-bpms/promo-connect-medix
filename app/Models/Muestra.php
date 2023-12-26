@@ -16,6 +16,7 @@ class Muestra extends Model
         'address',
         'phone',
         'name',
+        'type',
         'product_id',
         'status',
         'current_quote_id',

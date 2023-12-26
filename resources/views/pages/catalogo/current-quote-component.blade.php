@@ -202,11 +202,24 @@
         <div class="bg-white px-16 py-6 rounded-sm text-center" style="width: 600px">
             <p class="text-xl mb-4 font-bold">Ingresa los datos para hacerte llegar la muestra</p>
             <div class="grid grid-cols-3 px-4">
+
+                <div class="col-span-1 py-2 text-left">
+                    <label for="tipo_evento">Tipo de muestra</label>
+                   
+                </div>
+
+                <div class="col-span-2 py-2 flex flex-coll">
+                    <select id="type_sample" name="type_sample" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" wire:model="type_sample">
+                        <option value="virtual" selected>Muestra Virtual</option>
+                        <option value="fisica">Muestra Física</option>
+                        <option value="logotipo">Muestra Física con Logotipo</option>
+                    </select>
+                </div>
                 <div class="col-span-1 py-2 text-left">
                     <label for="nombre">Nombre: </label>
                 </div>
                 <div class="col-span-2 py-2 flex flex-col">
-                    <input type="text" class="flex flex-wrap w-full ring-1 ring-inset placeholder:text-gray-300"
+                    <input type="text" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                         wire:model="nombre">
                     @error('nombre')
                         <span>{{ $message }}</span>
@@ -216,7 +229,7 @@
                     <label for="telefono">Telefono: </label>
                 </div>
                 <div class="col-span-2 py-2">
-                    <input type="text" class="flex flex-wrap w-full ring-1 ring-inset placeholder:text-gray-300"
+                    <input type="text" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                         wire:model="telefono">
                     @error('telefono')
                         <span>{{ $message }}</span>
@@ -227,7 +240,7 @@
                 </div>
                 <div class="col-span-2 py-2">
                     <textarea name="" id="" cols="10" rows="3"
-                        class="flex flex-wrap w-full ring-1 ring-inset placeholder:text-gray-300" wire:model="direccion"></textarea>
+                        class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" wire:model="direccion"></textarea>
                     @error('direccion')
                         <span>{{ $message }}</span>
                     @enderror
