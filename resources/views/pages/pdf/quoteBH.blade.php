@@ -32,18 +32,18 @@
             <tr>
                 <td style="width: 50%;">
                     <div style="display:flex; margin-top:10px; margin-left: 30px;">
-                        <img src="img/promolife-logo.png" style="width: 120px;" >
+                        <img src="img/bhtrade.png" style="width: 80px;" >
                     </div>
-                    <p style="margin-left:30px; margin-top:10px; "><b>Promo Life S. de R.L. de C.V.</b> </p>
+                    <p style="margin-left:30px; margin-top:10px; "><b>BH Trademarket S.A. de C.V.</b> </p>
                     <p style="margin-left:30px;">San Andrés Atoto 155A Naucalpan de Juárez, Méx. C.P. 53550 Tel. +52(55) 6269 0017</p>
                 </td>
                 
                 <td style="text-align: left; width: 50%;">
-                    <div style="margin-left:60px; display:flex; margin-top:30px;">
-                        <img src="img/logo-color.png" style="width: 60px;" >
+                    <div style="margin-left:60px; display:flex;">
+                        <img src="img/logo-color.png" style="width: 120px;" >
                     </div>
 
-                    <p style="margin-left:60px; margin-top:10px;">Fecha: <b>{{$date}}</b></p>
+                    <p style="margin-left:60px; margin-top:28px;">Fecha: <b>{{$date}}</b></p>
                     <p style="margin-left:60px;"></p>
                 </td>
             </tr>
@@ -54,7 +54,7 @@
         <table class="footer content">
             <tr>
                 <td colspan="3">
-                    <center style="font-size: 20px; margin-bottom:5px;"><b>www.promolife.mx/</b></center>
+                    <center style="font-size: 20px; margin-bottom:5px;"><b>trademarket.com.mx</b></center>
                 
                 <center style="font-size:12px;">San Andrés Atoto 155A Naucalpan de
                     Juárez, Méx. C.P. 53550
