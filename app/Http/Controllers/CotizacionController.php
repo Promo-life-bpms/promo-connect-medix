@@ -83,7 +83,7 @@ class CotizacionController extends Controller
     public function special() {
     
         $user = auth()->user();
-        if ($user->hasRole(['buyers-manager'])) {
+        if ($user->hasRole(['buyers-manager', 'seller' ])) {
             $special_requests = SpecialRequest::latest()->paginate(10);
         }else{
             $special_requests = SpecialRequest::where('user_id', $user->id)->latest()->paginate(10);

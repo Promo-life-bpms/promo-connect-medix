@@ -89,15 +89,15 @@
                         </div>
                     @endif
                 </div>
-
+                @role(['buyers-manager', 'buyer'])
                 <div class="mb-7 md:mt-7 md:mb-0 mx-2">
                     <p class="text-base text-white font-semibold"><a href="{{ route('compras') }}">MIS COMPRAS</a></p>
                 </div>
-
+               
                 <div class="mb-7 md:mt-7 md:mb-0 mx-2">
                     <p class="text-base text-white font-semibold"><a href="{{ route('misCotizaciones') }}">MIS COTIZACIONES</a></p>
                 </div>
-
+                @endrole
                 <div class="mb-7 md:mt-7 md:mb-0 mx-2">
                     <p class="text-base text-white font-semibold"><a href="{{ route('special') }}">ESPECIALES</a></p>
                 </div>
