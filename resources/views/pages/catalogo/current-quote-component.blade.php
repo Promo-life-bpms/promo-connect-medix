@@ -146,6 +146,7 @@
             @endif
         </div>
         <div class="sm:col-span-2 col-span-1">
+            
             <div class="py-8 px-6">
                 <p class="text-md py-3 text-center font-bold">RESUMEN DEL PEDIDO</p>
                 <div class="px-8 space-y-3">
@@ -168,7 +169,8 @@
                         Continuar con la compra
                     </a> -->
                     <br>
-                    
+                    Selecciona opcion:
+                    <br>
                     <form wire:submit.prevent="generarPDF">
                         @csrf
                         @if(count($cotizacionActual) > 0)
@@ -197,9 +199,6 @@
                             <button type="submit" class="w-full bg-primary p-2 rounded text-center text-white" target="_blank" id="pdfButton" style="z-index:5;">
                                 <span id="buttonText">COMPRAR</span> 
                             </button>
-                            @if($pdfDescargado)
-
-                            @endif
                             <div class="flex">
                             <iframe id="info" style="margin-left:-24px;margin-top:-24px; z-index:-1; display:none;" src="https://giphy.com/embed/3oEjI6SIIHBdRxXI40" width="100" height="100" frameBorder="0" class="giphy-embed" ></iframe>
                             <p id="info-text" style="margin-left:-20px; display:none;"  >Generando cotizacion, por favor espere</p>

@@ -16,7 +16,7 @@ class Shopping extends Model
         'show_total',
         'logo',
         "direccion",
-        'status'
+        'status',
     ];
 
     public function shoppingUpdate()
@@ -37,5 +37,11 @@ class Shopping extends Model
     {
         return $this->belongsTo(Address::class);
     }
+
+    public function products()
+    {
+        return $this->hasMany(ShoppingProduct::class, 'shopping_id');
+    }
+
 
 }

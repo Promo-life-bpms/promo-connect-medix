@@ -64,6 +64,7 @@ class CreateShopping extends Migration
             $table->decimal('precio_total', 12, 2)->nullable();
             $table->boolean('shopping_by_scales')->default(false);
             $table->text('scales_info')->nullable();
+            $table->foreignId('shopping_id')->constrained('shoppings');
             $table->timestamps();
         });
 
@@ -101,6 +102,7 @@ class CreateShopping extends Migration
         Schema::dropIfExists('shopping_updates');
         Schema::dropIfExists('shopping_discounts');
         Schema::dropIfExists('shopping_products');
+        Schema::dropIfExists('shopping_techniques');
         Schema::dropIfExists('shopping_information');
         Schema::dropIfExists('shopping');
         

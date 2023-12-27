@@ -44,6 +44,7 @@ class ListQuotesComponent extends Component
                 $quotes = Shopping::where('user_id', $user->id)->get();
                 $total = $quotes->sum('precio_total');
             }
+            
         return view('livewire.list-shopping-component', ['quotes' => $quotes, 'total'=> $total]);
     }
 }

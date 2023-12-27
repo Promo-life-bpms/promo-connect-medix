@@ -2,5 +2,5 @@
 
 @section('title', 'Mis Cotizaciones')
 @section('content')
-    @livewire('list-quotes-component')
+    @livewire('list-shopping-component')
 @endsection

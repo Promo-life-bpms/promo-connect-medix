@@ -419,6 +419,8 @@ class CurrentQuoteComponent extends Component
                 $createQuoteProduct->precio_total = $cotizacion->precio_total;
                 $createQuoteProduct->shopping_by_scales = 0;
                 $createQuoteProduct->scales_info = null;
+                $createQuoteProduct->shopping_id = $createQuote->id;
+
                 $createQuoteProduct->save();
     
                 $createQuoteUpdate = new ShoppingUpdate();

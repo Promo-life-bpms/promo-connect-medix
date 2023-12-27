@@ -2,12 +2,12 @@
 
 @section('content')
     <div class="mx-auto">
-        @if(session('mensaje'))
+        {{-- @if(session('mensaje'))
             <div class="alert alert-success">
                 {{ session('mensaje') }}
             </div>
-        @endif
-        <div class="flex justify-between m-6">
+        @endif --}}
+        <div class="flex justify-between mx-20 mt-20">
             <h3 class="text-2xl font-bold "> Solicitudes especiales</h3>
 
             <div>
@@ -71,7 +71,7 @@
             </div>
         </div>
 
-        <div class="w-full m-6">
+        <div class="w-full mx-20 mt-5">
             @if( count($special_requests) == 0 )
 
                 <div>
@@ -80,9 +80,9 @@
 
             @else
 
-                <table  style="width:96%;">
+                <table  style="width:90%;">
 
-                    <thead class="bg-stone-100">
+                    <thead class="bg-blue-900 text-white">
                         <tr>
                             <th style="width: 5%;" class="p-4">#</th>
                             <th style="width: 35%;">Descripción</th>
@@ -96,7 +96,7 @@
 
                         @foreach($special_requests as $special_request)
 
-                            <tr>
+                            <tr class="border">
                                 <td class="m-8">{{ $loop->iteration }}</td>
                                 <td>
                                     {{ $special_request->description }}
@@ -105,7 +105,7 @@
                                 <td class="flex justify-center items-center"> 
 
                                     @if($special_request->image_reference !=null || $special_request->image_reference != '' )
-                                        <img src="{{ asset($special_request->image_reference) }}" alt="Imagen" width="100" height="100" class="pt-10" >
+                                        <img src="{{ asset($special_request->image_reference) }}" alt="Imagen" width="100" height="100" class="" >
                                     @else
                                         <p>Sin imagen</p>
                                     @endif

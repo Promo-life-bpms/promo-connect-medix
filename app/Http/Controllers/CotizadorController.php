@@ -24,6 +24,7 @@ use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Livewire\WithPagination;
 use SimpleXMLElement;
 
@@ -189,6 +190,12 @@ class CotizadorController extends Controller
     {
         return view('pages.catalogo.cotizaciones');
     }
+
+    public function compras()
+    {
+        return view('pages.catalogo.compras');
+    }
+
     public function muestras()
     {
         return view('pages.catalogo.muestras');
@@ -462,5 +469,14 @@ class CotizadorController extends Controller
         }
     
         return view('pages.catalogo.misCotizaciones', compact('quotes'));
+    }
+
+    public function comprasStatus(Request $request) {
+
+        DB::table('shoppings')->where('id', $request->shopping_id)->update([
+            'status' => $request->status,
+        ]);
+
+        return redirect()->action([CotizadorController::class, 'compras']);
     }
 }

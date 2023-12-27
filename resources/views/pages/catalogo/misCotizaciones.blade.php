@@ -21,30 +21,24 @@
         <h1 class=" mt-8 text-2xl font-semibold mb-8"> Mis Cotizaciones</h1> 
 
         <div class="flex">
-            <!-- Primer elemento del flex -->
             <div class="w-1/2 mr-8">
-                <!-- Card dentro del primer elemento -->
                 <div class="bg-white p-4 rounded shadow">
                     <h2 class="text-xl font-bold mb-2">N° de cotización:</h2>
                     <p class="text-bold text-4xl">{{count($quotes) }}</p>
                 </div>
             </div>
         
-            <!-- Segundo elemento del flex -->
             <div class="w-1/2">
-                <!-- Card dentro del segundo elemento -->
                 <div class="bg-white p-4 rounded shadow">
                     <h2 class="text-xl font-bold mb-2">Total: </h2>
                     <p class="text-bold text-4xl">$ {{ $totalGeneral }}</p>
                 </div>
             </div>
         
-            <!-- Tercer elemento del flex -->
             <div class="w-1/2">
                 
             </div>
         
-            <!-- Cuarto elemento del flex -->
             <div class="w-1/2">
                 
             </div>
@@ -55,7 +49,7 @@
         <div class="w-full">
             <table class="table-auto">
                 <thead>
-                    <tr class="bg-black text-white p-4">
+                    <tr class="bg-blue-900 text-white">
                         <th style="width:5%;">Cotizacion</th>
                         <th style="width:5%;">Logo</th>
                         <th style="width:20%;">Producto</th>
@@ -79,7 +73,7 @@
                             $totalGeneral += intval($product->precio_total);
                         @endphp
                         
-                        <tr>
+                        <tr class="border">
                             <td class="text-center"><b>SQ-{{$quote->id}}</b></td>
                             <td class="text-center">
                                 @if($quote->logo == null || $quote->logo == '')
