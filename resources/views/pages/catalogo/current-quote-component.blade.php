@@ -168,13 +168,12 @@
                         class="block w-full bg-[#000000] hover:bg-[#3D3D3D] text-white text-center rounded-sm font-semibold py-2 px-4">
                         Continuar con la compra
                     </a> -->
-                    <br>
-                    Selecciona opcion:
+                    
                     <br>
                     <form wire:submit.prevent="generarPDF">
                         @csrf
                         @if(count($cotizacionActual) > 0)
-                            <button type="submit" class="block w-full border-2 border-primary hover:border-primary-dark text-center rounded-sm font-semibold py-1 px-4" target="_blank" id="pdfButton" style="z-index: 5;">
+                            <button type="submit" class="w-full bg-primary p-2 rounded text-center text-white" target="_blank" id="pdfButton" style="z-index: 5;">
                                 <span id="buttonText">COTIZAR</span>
                             </button>
                             @if($pdfDescargado)
@@ -187,7 +186,7 @@
                         @endif
                     </form>
 
-                    <div class="grid grid-cols-3 items-center justify-center">
+                    {{-- <div class="grid grid-cols-3 items-center justify-center">
                         <div style="width: 100%; height: 1px; background-color: rgb(192, 192, 192);"></div>
                         <div class="text-center">ó</div>
                         <div style="width: 100%; height: 1px; background-color: rgb(192, 192, 192);"></div>
@@ -204,7 +203,7 @@
                             <p id="info-text" style="margin-left:-20px; display:none;"  >Generando cotizacion, por favor espere</p>
                             </div>
                         @endif
-                    </form>
+                    </form> --}}
                 </div>
             </div>
         </div>

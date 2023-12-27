@@ -197,7 +197,7 @@
                                 
                                 <div class="flex-initial">
                                     <canvas  wire:ignore id="canvas" width="400" height="400" crossorigin="anonymous" ></canvas> 
-                                    <p class="mt-2 text-sm">Imagen de referencia</p>
+                                    <p class="mt-2 text-sm text-semibold text-red-800"><b>Nota: </b>Imagen solo de referencia *</p>
                                 </div>
                                 <div class="flex-initial pl-4">
                             

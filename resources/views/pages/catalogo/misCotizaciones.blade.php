@@ -52,14 +52,14 @@
                     <tr class="bg-blue-900 text-white">
                         <th style="width:5%;">Cotizacion</th>
                         <th style="width:5%;">Logo</th>
-                        <th style="width:20%;">Producto</th>
+                        <th style="width:10%;">Producto</th>
                         <th style="width:10%;">Tecnica</th>
-                        <th style="width:25%;">Detalles</th>
-                        <th style="width:5%;">Tiempo de entrega</th>
-                        <th style="width:5%;">Cantidad</th>
-                        <th style="width:5%;">Precio unitario</th>
-                        <th>Total</th>
-                        <th></th>
+                        <th style="width:20%;">Detalles</th>
+                        <th style="width:10%;">Tiempo de entrega</th>
+                        <th style="width:10%;">Cantidad</th>
+                        <th style="width:10%;">Precio unitario</th>
+                        <th style="width:10%;">Total</th>
+                        <th style="width:10%;"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -96,8 +96,16 @@
                                 <form method="POST" action="{{ route('downloadPDF') }}">
                                     @csrf
                                     <input type="hidden" name="id" value="{{ $quote->id }}">
-                                    <button type="submit" class="bg-primary hover:bg-primary text-white font-bold p-2 rounded">
-                                        Descargar cotización
+                                    <button type="submit" class="w-full bg-primary hover:bg-primary text-white font-bold p-2 rounded text-sm">
+                                        Descargar cotizacion
+                                    </button>
+                                </form>
+
+                                <form method="POST" action="{{ route('compras.realizarcompra') }}">
+                                    @csrf
+                                    <input type="hidden" name="id" value="{{ $quote->id }}">
+                                    <button type="submit" class="w-full bg-green-500 hover:bg-green-700 text-white font-bold p-2 rounded text-sm">
+                                        Realizar compra
                                     </button>
                                 </form>
                             </td>

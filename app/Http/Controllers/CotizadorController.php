@@ -479,4 +479,100 @@ class CotizadorController extends Controller
 
         return redirect()->action([CotizadorController::class, 'compras']);
     }
+
+    public function comprasRealizarCompra() {
+ 
+
+       return 1;
+
+            $product = Product::find($cotizacion->product_id);
+
+            if($product){
+                $createQuote = new Shopping(); 
+                $createQuote->user_id = auth()->user()->id;
+                $createQuote->address_id = 1;
+                $createQuote->iva_by_item = 1;
+                $createQuote->show_total = 1;
+                $createQuote->logo = $cotizacion->logo ;
+                $createQuote->status = 0;
+                $createQuote->save();
+    
+                $createQuoteDiscount = new ShoppingDiscount();
+                $createQuoteDiscount->discount = 0;
+                $createQuoteDiscount->type = 'Fijo';
+                $createQuoteDiscount->value = 0.00;
+                $createQuoteDiscount->save();
+    
+                $createQuoteInformation = new ShoppingInformation();
+                $createQuoteInformation->name = 'Cliente';
+                $createQuoteInformation->email = 'email';
+                $createQuoteInformation->landline = '1';
+                $createQuoteInformation->cell_phone = '1';
+                $createQuoteInformation->oportunity = 'Oportunidad';
+                $createQuoteInformation->rank = '1';
+                $createQuoteInformation->department = 'Departamento';
+                $createQuoteInformation->information = 'Info';
+                $createQuoteInformation->tax_fee = 0;
+                $createQuoteInformation->shelf_life = 10;
+                $createQuoteInformation->save();
+    
+                $createQuoteProduct = new ShoppingProduct();
+                $createQuoteProduct->product = json_encode($product);
+                $createQuoteProduct->technique = json_encode(['price_technique' => $cotizacion->price_technique]);
+                $createQuoteProduct->prices_techniques = $cotizacion->price_technique;
+                $createQuoteProduct->color_logos = $cotizacion->color_logos;
+                $createQuoteProduct->costo_indirecto = 0;
+                $createQuoteProduct->utilidad = 0;
+                $createQuoteProduct->dias_entrega = $cotizacion->dias_entrega;
+                $createQuoteProduct->cantidad = $cotizacion->cantidad;
+                $createQuoteProduct->precio_unitario = $cotizacion->precio_unitario;
+                $createQuoteProduct->precio_total = $cotizacion->precio_total;
+                $createQuoteProduct->shopping_by_scales = 0;
+                $createQuoteProduct->scales_info = null;
+                $createQuoteProduct->shopping_id = $createQuote->id;
+
+                $createQuoteProduct->save();
+    
+                $createQuoteUpdate = new ShoppingUpdate();
+                $createQuoteUpdate->shopping_id = $createQuote->id;
+                $createQuoteUpdate->shopping_information_id = $createQuoteInformation->id;
+                $createQuoteUpdate->shopping_discount_id = $createQuoteDiscount->id;
+                $createQuoteUpdate->type = 'created';
+                $createQuoteUpdate->save();
+
+                if($cotizacion->currentQuotesTechniques){
+                    $createQuoteTechniques = new ShoppingTechnique();
+                    $createQuoteTechniques->quotes_id = $createQuote->id;
+                    $createQuoteTechniques->material =  $cotizacion->currentQuotesTechniques->material;
+                    $createQuoteTechniques->technique = $cotizacion->currentQuotesTechniques->technique;
+                    $createQuoteTechniques->size = $cotizacion->currentQuotesTechniques->size;
+                    $createQuoteTechniques->save();
+                }
+               
+
+                array_push($quoteCotizationNumber, $createQuote->id );
+            } 
+       
+     /*    $pdf = \PDF::loadView('pages.pdf.cotizacionBH', ['date' =>$date, 'cotizacionActual'=>$cotizacionActual ]);
+        $pdf->setPaper('Letter', 'portrait');
+        return $pdf->stream("QS-1". '.pdf');  */
+        
+        $quotes = Quote::whereIn('id', $quoteCotizationNumber)->get();
+
+        /* $correoDestino = 'fsolano.fs69@gmail.com';
+        Notification::route('mail', $correoDestino)
+        ->notify(new SendEmailCotizationNotification($date, $quotes )); */
+
+
+        $currentQuote = auth()->user()->currentQuote;
+
+        if ($currentQuote) {
+            $currentQuote->currentQuoteDetails->each(function ($detail) {
+                $detail->delete();
+            });
+        }
+        
+        return redirect()->back();
+
+    }
 }
