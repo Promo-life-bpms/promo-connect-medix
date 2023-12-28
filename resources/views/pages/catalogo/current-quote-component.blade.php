@@ -1,4 +1,12 @@
 <div class="container mx-auto max-w-7xl py-2">
+
+    @if(session('message'))
+        <div class="bg-green-500 text-white p-4 mb-4">
+            <p class="text-lg">¡Éxito! Se ha realizado la cotización de tu producto correctamente, ingresa a la sección <b>MIS COTIZACIONES</b> .</p>
+        </div>
+    @endif
+   
+
     <div class="grid sm:grid-cols-7 grid-cols-1">
         <div class="sm:col-span-5 col-span-1 px-6">
             <div class="font-semibold text-slate-700 py-8 flex items-center space-x-2">

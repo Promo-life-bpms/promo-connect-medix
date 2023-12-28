@@ -25,6 +25,8 @@ use Exception;
 use Livewire\Component;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Notification;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Session;
 
 class CurrentQuoteComponent extends Component
 {
@@ -328,8 +330,17 @@ class CurrentQuoteComponent extends Component
             });
         }
         
-        return response()->download(public_path($filename))->deleteFileAfterSend(true);
-
+        Response::macro('downloadWithFlash', function ($file, $name = null, array $headers = [], $disposition = 'attachment') {
+            $response = response()->download($file, $name, $headers, $disposition)->deleteFileAfterSend(true);
+        
+            // Agrega un mensaje de sesión después de enviar el archivo
+            Session::flash('message', 'El archivo se descargó correctamente.');
+        
+            return $response;
+        });
+        
+        // Luego puedes usarlo así:
+        return response()->downloadWithFlash(public_path($filename));
        
     }
 
