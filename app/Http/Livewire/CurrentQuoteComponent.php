@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Catalogo\Product;
 use App\Models\CurrentQuote;
 use App\Models\CurrentQuoteDetails;
+use App\Models\CurrentQuotesTechniques;
 use App\Models\Muestra;
 use App\Models\Quote;
 use App\Models\QuoteDiscount;
@@ -195,7 +196,6 @@ class CurrentQuoteComponent extends Component
     public function generarPDF()
     {
 
-
         $this->pdfDescargado = true;
         
         $date =  Carbon::now()->format("d/m/Y");
@@ -236,6 +236,8 @@ class CurrentQuoteComponent extends Component
         $quoteCotizationNumber = [];
 
         foreach($cotizacionActual as $cotizacion){
+
+            $cotizacion_techniques = CurrentQuotesTechniques::where('current_quotes_details_id', $cotizacion->id)->get()->first();
 
             $product = Product::find($cotizacion->product_id);
 
@@ -293,12 +295,11 @@ class CurrentQuoteComponent extends Component
                 if($cotizacion->currentQuotesTechniques){
                     $createQuoteTechniques = new QuoteTechniques();
                     $createQuoteTechniques->quotes_id = $createQuote->id;
-                    $createQuoteTechniques->material =  $cotizacion->currentQuotesTechniques->material;
-                    $createQuoteTechniques->technique = $cotizacion->currentQuotesTechniques->technique;
-                    $createQuoteTechniques->size = $cotizacion->currentQuotesTechniques->size;
+                    $createQuoteTechniques->material =  $cotizacion_techniques->material;
+                    $createQuoteTechniques->technique = $cotizacion_techniques->technique;
+                    $createQuoteTechniques->size = $cotizacion_techniques->size;
                     $createQuoteTechniques->save();
                 }
-               
 
                 array_push($quoteCotizationNumber, $createQuote->id );
             } 

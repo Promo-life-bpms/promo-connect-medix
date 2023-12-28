@@ -37,4 +37,10 @@ class CurrentQuoteDetails extends Model
     {
         return $this->belongsTo(Muestra::class, 'id',  'current_quote_id')->where('product_id', $id)->orderBy('id', 'desc')->get();
     }
+
+    public function currentQuotesTechniques()
+    {
+        return $this->hasMany(CurrentQuotesTechniques::class, 'current_quotes_details_id');
+    }
+
 }
