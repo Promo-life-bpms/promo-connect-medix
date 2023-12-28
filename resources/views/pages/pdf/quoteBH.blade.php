@@ -127,14 +127,14 @@
                         <th colspan="2" style="width:35%; padding:2px;" >Detalle de la Personalizacion </th>
                     </tr>
                     <tr>
-                        <td colspan="1" style="width:35%">{{ isset($quote->currentQuotesTechniques->technique)? $quote->currentQuotesTechniques->technique :  '' }} </td>
+                        <td colspan="1" style="width:35%">{{ isset($quoteTechnique->technique)? $quoteTechnique->technique :  '' }} </td>
                         <td colspan="2" style="width:35%">
                             <p> <b>Material: </b>  {{ isset($quoteTechnique->material)? $quoteTechnique->material : ''  }} </p>
                             <p> <b>Tamaño: </b>  {{ isset($quoteTechnique->size)? $quoteTechnique->size : '' }} </p>
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="3" style="width:10% ;"><center><b>Tiempo de Entrega: 15 días hábiles</b> </center>  </td>
+                        <td colspan="3" style="width:10% ;"><center><b>Tiempo de Entrega: 10 días hábiles</b> </center>  </td>
                     </tr>
                     <tr>
                         <th colspan="1">Cantidad</th>

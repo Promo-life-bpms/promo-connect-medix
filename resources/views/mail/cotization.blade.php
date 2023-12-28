@@ -4,9 +4,9 @@
 
 ---
 
-[Promo life S. de R.L. de C.V.](https://www.promolife.mx/)
+[BH Trademarket S.A. de C.V.](https://trademarket.com.mx/)
 San Andrés Atoto 155A Naucalpan de Juárez, Méx. C.P. 53550  
-Tel. +52(55) 6269 0017 
+Tel. +52(55) 6806 4616 
 
 Fecha: **{{ $date }}**
 
@@ -53,7 +53,7 @@ Fecha: **{{ $date }}**
 | Material                         | {{ isset($quoteTechnique->material) ? $quoteTechnique->material : '' }}                                           |
 | Tamaño                           | {{ isset($quoteTechnique->size) ? $quoteTechnique->size : '' }}                                                   |
 
-**Tiempo de Entrega:** 15 días hábiles
+**Tiempo de Entrega:** 10 días hábiles
 
 ### Detalles del Producto
 | Cantidad         | Precio Unitario  | Precio total      |

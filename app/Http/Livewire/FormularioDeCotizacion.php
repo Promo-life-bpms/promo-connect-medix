@@ -5,10 +5,13 @@ namespace App\Http\Livewire;
 use Livewire\WithFileUploads;
 use App\Models\Catalogo\GlobalAttribute;
 use App\Models\Catalogo\Product;
+use App\Models\CurrentQuotesTechniques;
 use App\Models\Material;
 use App\Models\MaterialTechnique;
 use App\Models\PricesTechnique;
+use App\Models\Size;
 use App\Models\SizeMaterialTechnique;
+use App\Models\Technique;
 use App\Models\TemporalImageUrl;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -204,6 +207,7 @@ class FormularioDeCotizacion extends Component
 
     public function agregarCarrito()
     {
+        
         $user = Auth::user();
 
         $this->validate([
@@ -211,6 +215,10 @@ class FormularioDeCotizacion extends Component
             'cantidad' => 'required|numeric|min:1',
             'colores' => 'required|numeric|min:0',
         ]);
+
+        $material = Material::findOrFail($this->materialSeleccionado);
+        $technique = Technique::findOrFail($this->tecnicaSeleccionada);
+        $size = Size::find($this->sizeSeleccionado);       
 
         $temporalImage = TemporalImageUrl::where('product_id', $this->product->id)->where('type', 'no used')->where('user_id', $user->id)->get()->last();
 
@@ -252,7 +260,14 @@ class FormularioDeCotizacion extends Component
             'logo' => $imageName
         ];
 
-        $currentQuote->currentQuoteDetails()->create($dataQuote);
+        $createCurrentQuote =  $currentQuote->currentQuoteDetails()->create($dataQuote);
+
+        $createCurrentQuotesTechniques = new CurrentQuotesTechniques();
+        $createCurrentQuotesTechniques->current_quotes_details_id = $createCurrentQuote->id;
+        $createCurrentQuotesTechniques->material = $material->nombre;
+        $createCurrentQuotesTechniques->technique = $technique->nombre; 
+        $createCurrentQuotesTechniques->size = $size->nombre; 
+        $createCurrentQuotesTechniques->save();
 
         session()->flash('message', 'Se ha agregado este producto al carrito.');
         $this->emit('currentQuoteAdded');
