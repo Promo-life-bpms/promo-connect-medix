@@ -197,46 +197,70 @@
                                 
                                 <div class="flex-initial">
                                     <canvas  wire:ignore id="canvas" width="400" height="400" crossorigin="anonymous" ></canvas> 
-                                    <p class="mt-2 text-sm">Imagen de referencia</p>
+                                    <p class="mt-2 text-sm text-semibold text-red-800"><b>Nota: </b>Imagen solo de referencia *</p>
                                 </div>
                                 <div class="flex-initial pl-4">
                             
                                     <p class="text-base font-bold">Selecciona tu logo </p>
 
                                     <div class="grid grid-cols-3 gap-4">
-                                        <div class="bg-stone-300 p-2 cursor-pointer" id="logo1">
-                                            <img src="{{ asset('img/Logo_Biolaif.png') }}" alt="logo" class="w-30">
-                                        </div>
-                                        <div class="bg-stone-300 p-2 cursor-pointer" id="logo2">
-                                            <img src="{{ asset('img/Logo_Cronocaps.png') }}" alt="logo" class="w-30">
-                                        </div>
-                                        <div class="bg-stone-300 p-2 cursor-pointer" id="logo3">
-                                            <img src="{{ asset('img/Logo_Ferocine.png') }}" alt="logo" class="w-30">
-                                        </div>
-                                        <div class="bg-stone-300 p-2 cursor-pointer" id="logo4">
-                                            <img src="{{ asset('img/Logo_Histofil.png') }}" alt="logo" class="w-30">
-                                        </div>
-                                        <div class="bg-stone-300 p-2 cursor-pointer" id="logo5">
-                                            <img src="{{ asset('img/Logo_Ifor.png') }}" alt="logo" class="w-30">
-                                        </div>
-                                        <div class="bg-stone-300 p-2 cursor-pointer" id="logo6">
-                                            <img src="{{ asset('img/Logo_Neomicol1.png') }}" alt="logo" class="w-30">
-                                        </div>
-                                        <div class="bg-stone-300 p-2 cursor-pointer" id="logo7">
-                                            <img src="{{ asset('img/Logo_Neomicol2.png') }}" alt="logo" class="w-30">
-                                        </div>
-                                        <div class="bg-stone-300 p-2 cursor-pointer" id="logo8">
-                                            <img src="{{ asset('img/Logo_Neomicol3.png') }}" alt="logo" class="w-30">
-                                        </div>
-                                        <div class="bg-stone-300 p-2 cursor-pointer" id="logo9">
-                                            <img src="{{ asset('img/Logo_Prepram.png') }}" alt="logo" class="w-30">
-                                        </div>
-                                        <div class="bg-stone-300 p-2 cursor-pointer" id="logo10">
-                                            <img src="{{ asset('img/Logo_Sub-Z.png') }}" alt="logo" class="w-30">
-                                        </div>
-                                        <div class="bg-stone-300 p-2 cursor-pointer" id="logo11">
-                                            <img src="{{ asset('img/Logo_Triyotex.png') }}" alt="logo" class="w-30">
-                                        </div>
+                                        <select id="logos" name="logos" class=" mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" style="width: 210px;">
+                                            <option value="ADANZA60_BLANCO.png">ADANZA60 BLANCO</option>
+                                            <option value="ADANZA60_NEGRO.png">ADANZA60 NEGRO</option>
+                                            <option value="Andanza120_Negro.png">Andanza120 Negro</option>
+                                            <option value="Andnaza120_Blanco.png">Andnaza120 Blanco</option>
+                                            <option value="BIOLAF_BLANCO.png">BIOLAF BLANCO</option>
+                                            <option value="BIOLAF_NEGRO.png">BIOLAF NEGRO</option>
+                                            <option value="COLSULIX_BLANCO.png">COLSULIX BLANCO</option>
+                                            <option value="COLSULIX_NEGRO.png">COLSULIX NEGRO</option>
+                                            <option value="CRONOCAPS_BLANCO.png">CRONOCAPS BLANCO</option>
+                                            <option value="CRONOCPAS_NEGRO.png">CRONOCPAS NEGRO</option>
+                                            <option value="FEROCINE_BLANCO.png">FEROCINE BLANCO</option>
+                                            <option value="FEROCINE_NEGRO.png">FEROCINE NEGRO</option>
+                                            <option value="HISTIOFIL2000_BLANCO.png">HISTIOFIL2000 BLANCO</option>
+                                            <option value="HISTIOFIL2000_NEGRO.png">HISTIOFIL2000 NEGRO</option>
+                                            <option value="HISTIOFIL4000_BLANCO.png">HISTIOFIL4000 BLANCO</option>
+                                            <option value="HISTIOFIL4000_NEGRO.png">HISTIOFIL4000 NEGRO</option>
+                                            <option value="HYDRON_BLANCO.png">HYDRON BLANCO</option>
+                                            <option value="HYDRON_NEGRO.png">HYDRON NEGRO</option>
+                                            <option value="IFORD_BLANCO.png">IFORD BLANCO</option>
+                                            <option value="IFORD_NEGRO.png">IFORD NEGRO</option>
+                                            <option value="LACIDOFIL_BLANCO.png">LACIDOFIL BLANCO</option>
+                                            <option value="LACIDOFIL_NEGRO.png">LACIDOFIL NEGRO</option>
+                                            <option value="LAIF_BLANCO.png">LAIF BLANCO</option>
+                                            <option value="LAIF_NEGRO.png">LAIF NEGRO</option>
+                                            <option value="LUDLEV_BLANCO.png">LUDLEV BLANCO</option>
+                                            <option value="LUDLEV_NEGRO.png">LUDLEV NEGRO</option>
+                                            <option value="MEDIBTIN_NEGRO.png">MEDIBTIN NEGRO</option>
+                                            <option value="MEDIBUTINTAB_BLANCO.png">MEDIBUTINTAB BLANCO</option>
+                                            <option value="MEDIBUTINTAB_NEGRO.png">MEDIBUTINTAB NEGRO</option>
+                                            <option value="MEDIBUTIN_BLANCO.png">MEDIBUTIN BLANCO</option>
+                                            <option value="MELATONINA_BLANCO.png">MELATONINA BLANCO</option>
+                                            <option value="MELATONINA_NEGRO.png">MELATONINA NEGRO</option>
+                                            <option value="OXATHOS_BLANCO.png">OXATHOS BLANCO</option>
+                                            <option value="OXATHOS_NEGRO.png">OXATHOS NEGRO</option>
+                                            <option value="PYLOPAC_BLANCO_1.png">PYLOPAC BLANCO_1</option>
+                                            <option value="PYLOPAC_NEGRO_1.png">PYLOPAC NEGRO_1</option>
+                                            <option value="SENEX_BLANCO.png">SENEX BLANCO</option>
+                                            <option value="SENEX_NEGRO.png">SENEX NEGRO</option>
+                                            <option value="SERONEXLP_BLANCO.png">SERONEXLP BLANCO</option>
+                                            <option value="SERONEXLP_NEGRO.png">SERONEXLP NEGRO</option>
+                                            <option value="SERONEX_BLANCO.png">SERONEX BLANCO</option>
+                                            <option value="SERONEX_NEGRO.png">SERONEX NEGRO</option>
+                                            <option value="SUBZ3_BLANCO.png">SUBZ3 BLANCO</option>
+                                            <option value="SUBZ3_NEGRO.png">SUBZ3 NEGRO</option>
+                                            <option value="SUBZ5_BLANCO.png">SUBZ5 BLANCO</option>
+                                            <option value="SUBZ5_NEGRO.png">SUBZ5 NEGRO</option>
+                                            <option value="SUBZ5_NEGRO_1.png">SUBZ5 NEGRO_1</option>
+                                            <option value="TEMPOLIB_BLANCO.png">TEMPOLIB BLANCO</option>
+                                            <option value="TEMPOLIB_NEGRO.png">TEMPOLIB NEGRO</option>
+                                            <option value="TEROCAPS_BLANCO.png">TEROCAPS BLANCO</option>
+                                            <option value="TEROCAPS_NEGRO.png">TEROCAPS NEGRO</option>
+                                            <option value="TRIYOTEX10_BLANCO.png">TRIYOTEX10 BLANCO</option>
+                                            <option value="TRIYOTEX10_NEGRO.png">TRIYOTEX10 NEGRO</option>
+                                            <option value="TRIYOTEX5_BLANCO.png">TRIYOTEX5 BLANCO</option>
+                                            <option value="TRIYOTEX5_NEGRO.png">TRIYOTEX5 NEGRO</option>
+                                        </select>
                                     </div>
                                     
                                     <br>
@@ -439,11 +463,44 @@
         var selectedLogo9 = document.getElementById("logo9");
         var selectedLogo10 = document.getElementById("logo10");
         var selectedLogo11 = document.getElementById("logo11");
+
+        var logoSelect = document.getElementById("logos");
         
         var logoURL = document.getElementById("imageInput");
 
+        var selectedImageLogo = null;
+
         /* Canvas en DOOM*/
         document.addEventListener("DOMContentLoaded", function () {
+
+            logoSelect.addEventListener("change", function () {
+                var selectedLogo = logoSelect.value;
+              
+                canvas.remove(selectedImageLogo);
+
+                // Construir la URL de la imagen dinámicamente
+                var logo = `{{asset('img/logos/${selectedLogo}')}}`;
+                if (selectedImageLogo) {
+                    canvas.remove(selectedImageLogo);
+                }
+                   
+               
+                fabric.Image.fromURL(logo, function (image) {
+                    image.scaleToWidth(50);
+                    image.scaleToHeight(50);
+                    image.set({ left: 100, top: 100, selectable: true, crossOrigin: 'anonymous' });
+                    canvas.add(image);
+                    selectedImageLogo = image;
+                    
+                    canvas.renderAll();
+                });
+
+                canvas.remove(image);
+        
+                console.log("Logo seleccionado: " + selectedImage);
+            });
+
+
             /* Se inicializa */
             var canvas = new fabric.Canvas('canvas', {
                 backgroundColor: 'white'
@@ -472,7 +529,6 @@
             }
 
 
-            var selectedImage = null;
 
             /* Evento para agregar imagenes desde input (deshabilitado si no esta el boton de logo personalizado) */
            /*  imageInput.addEventListener("change", function (event) {
@@ -498,172 +554,7 @@
                 }
             });
  */
-            /* Evento para agregar el primer logo del modal */
-            selectedLogo1.addEventListener("click", function() { 
-                if (selectedImage) {
-                    canvas.remove(selectedImage);
-                }
-                fabric.Image.fromURL(logo1, function (image) {
-                    image.scaleToWidth(50);
-                    image.scaleToHeight(50);
-                    image.set({ left: 100, top: 100, selectable: true, crossOrigin: 'anonymous' });
-                    canvas.add(image);
-                    selectedImage = image;
-                    canvas.renderAll();
-                });
-            });
-
-            /* Evento para agregar el segundo logo del modal */
-            selectedLogo2.addEventListener("click", function() {
-                if (selectedImage) {
-                    canvas.remove(selectedImage);
-                }
-                fabric.Image.fromURL(logo2, function (image) {
-                    image.scaleToWidth(50);
-                    image.scaleToHeight(50);
-                    image.set({ left: 100, top: 100, selectable: true, crossOrigin: 'anonymous' });
-                    canvas.add(image);
-                    selectedImage = image;
-                    canvas.renderAll();
-                });
-            });
-
-            /* Evento para agregar el tercer logo del modal */
-            selectedLogo3.addEventListener("click", function() {
-                if (selectedImage) {
-                    canvas.remove(selectedImage);
-                }
-                fabric.Image.fromURL(logo3, function (image) {
-                    image.scaleToWidth(50);
-                    image.scaleToHeight(50);
-                    image.set({ left: 100, top: 100, selectable: true, crossOrigin: 'anonymous' });
-                    canvas.add(image);
-                    selectedImage = image;
-                    canvas.renderAll();
-                });
-            });
-
-            /* Evento para agregar el cuarto logo del modal */
-            selectedLogo4.addEventListener("click", function() {
-                if (selectedImage) {
-                    canvas.remove(selectedImage);
-                }
-                fabric.Image.fromURL(logo4, function (image) {
-                    image.scaleToWidth(50);
-                    image.scaleToHeight(50);
-                    image.set({ left: 100, top: 100, selectable: true, crossOrigin: 'anonymous' });
-                    canvas.add(image);
-                    selectedImage = image;
-                    canvas.renderAll();
-                });
-            });
-
-            /* Evento para agregar el quinto logo del modal */
-            selectedLogo5.addEventListener("click", function() {
-                if (selectedImage) {
-                    canvas.remove(selectedImage);
-                }
-                fabric.Image.fromURL(logo5, function (image) {
-                    image.scaleToWidth(50);
-                    image.scaleToHeight(50);
-                    image.set({ left: 100, top: 100, selectable: true, crossOrigin: 'anonymous' });
-                    canvas.add(image);
-                    selectedImage = image;
-                    canvas.renderAll();
-                });
-            });
-
-            /* Evento para agregar el sexto logo del modal */
-            selectedLogo6.addEventListener("click", function() {
-                if (selectedImage) {
-                    canvas.remove(selectedImage);
-                }
-                fabric.Image.fromURL(logo6, function (image) {
-                    image.scaleToWidth(50);
-                    image.scaleToHeight(50);
-                    image.set({ left: 100, top: 100, selectable: true, crossOrigin: 'anonymous' });
-                    canvas.add(image);
-                    selectedImage = image;
-                    canvas.renderAll();
-                });
-            });
-
-            /* Evento para agregar el séptimo logo del modal */
-            selectedLogo7.addEventListener("click", function() {
-                if (selectedImage) {
-                    canvas.remove(selectedImage);
-                }
-                fabric.Image.fromURL(logo7, function (image) {
-                    image.scaleToWidth(50);
-                    image.scaleToHeight(50);
-                    image.set({ left: 100, top: 100, selectable: true, crossOrigin: 'anonymous' });
-                    canvas.add(image);
-                    selectedImage = image;
-                    canvas.renderAll();
-                });
-            });
-
-            /* Evento para agregar el octavo logo del modal */
-            selectedLogo8.addEventListener("click", function() {
-                if (selectedImage) {
-                    canvas.remove(selectedImage);
-                }
-                fabric.Image.fromURL(logo8, function (image) {
-                    image.scaleToWidth(50);
-                    image.scaleToHeight(50);
-                    image.set({ left: 100, top: 100, selectable: true, crossOrigin: 'anonymous' });
-                    canvas.add(image);
-                    selectedImage = image;
-                    canvas.renderAll();
-                });
-            });
-
-            /* Evento para agregar el noveno logo del modal */
-            selectedLogo9.addEventListener("click", function() {
-                if (selectedImage) {
-                    canvas.remove(selectedImage);
-                }
-                fabric.Image.fromURL(logo9, function (image) {
-                    image.scaleToWidth(50);
-                    image.scaleToHeight(50);
-                    image.set({ left: 100, top: 100, selectable: true, crossOrigin: 'anonymous' });
-                    canvas.add(image);
-                    selectedImage = image;
-                    canvas.renderAll();
-                });
-            });
-
-            /* Evento para agregar el décimo logo del modal */
-            selectedLogo10.addEventListener("click", function() {
-                if (selectedImage) {
-                    canvas.remove(selectedImage);
-                }
-                fabric.Image.fromURL(logo10, function (image) {
-                    image.scaleToWidth(50);
-                    image.scaleToHeight(50);
-                    image.set({ left: 100, top: 100, selectable: true, crossOrigin: 'anonymous' });
-                    canvas.add(image);
-                    selectedImage = image;
-                    canvas.renderAll();
-                });
-            });
-
-            /* Evento para agregar el undécimo logo del modal */
-            selectedLogo11.addEventListener("click", function() {
-                if (selectedImage) {
-                    canvas.remove(selectedImage);
-                }
-                fabric.Image.fromURL(logo11, function (image) {
-                    image.scaleToWidth(50);
-                    image.scaleToHeight(50);
-                    image.set({ left: 100, top: 100, selectable: true, crossOrigin: 'anonymous' });
-                    canvas.add(image);
-                    selectedImage = image;
-                    canvas.renderAll();
-                });
-            });
-
-                        
+                      
 
             /* Evento para agregar texto */
             var textObject = null;

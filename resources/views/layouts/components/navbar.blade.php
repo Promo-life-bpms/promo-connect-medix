@@ -90,44 +90,46 @@
                     @endif
                 </div>
                 @role(['buyers-manager', 'buyer'])
-                <div class="mb-7 md:mt-7 md:mb-0 mx-2">
-                    <p class="text-base text-white font-semibold"><a href="{{ route('compras') }}">MIS COMPRAS</a></p>
-                </div>
-               
-                <div class="mb-7 md:mt-7 md:mb-0 mx-2">
-                    <p class="text-base text-white font-semibold"><a href="{{ route('misCotizaciones') }}">MIS COTIZACIONES</a></p>
-                </div>
+                    <div class="mb-7 md:mt-7 md:mb-0 mx-2">
+                        <p class="text-base text-white font-semibold"><a href="{{ route('compras') }}">MIS COMPRAS</a></p>
+                    </div>
+                
+                    <div class="mb-7 md:mt-7 md:mb-0 mx-2">
+                        <p class="text-base text-white font-semibold"><a href="{{ route('misCotizaciones') }}">MIS COTIZACIONES</a></p>
+                    </div>
+                    <div class="mb-7 md:mt-7 md:mb-0 mx-2">
+                        <p class="text-base text-white font-semibold"><a href="{{ route('special') }}">ESPECIALES</a></p>
+                    </div>
                 @endrole
-                <div class="mb-7 md:mt-7 md:mb-0 mx-2">
-                    <p class="text-base text-white font-semibold"><a href="{{ route('special') }}">ESPECIALES</a></p>
-                </div>
+            
+                @role(['buyers-manager', 'buyer'])
 
-                <div class="flex">
-                    @role(['buyers-manager', 'buyer'])
-                        <a class="text-primary hover:text-primary mt-6" href="{{ route('catalogo') }}">
-                            <div class="mt-1">
-                                <svg width="25px" height="25px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <defs>
-                                    <style>.cls-1{fill:none;stroke:#FFFFFF;stroke-miterlimit:10;stroke-width:1.91px;}</style>
-                                    </defs>
-                                    <g id="handbag">
-                                    <path class="cls-1" d="M3.41,7.23H20.59a0,0,0,0,1,0,0v12a3.23,3.23,0,0,1-3.23,3.23H6.64a3.23,3.23,0,0,1-3.23-3.23v-12A0,0,0,0,1,3.41,7.23Z"/>
-                                    <path class="cls-1" d="M8.18,10.09V5.32A3.82,3.82,0,0,1,12,1.5h0a3.82,3.82,0,0,1,3.82,3.82v4.77"/>
-                                    </g>
-                                </svg>
+                    <div class="flex">
+                            <a class="text-primary hover:text-primary mt-6" href="{{ route('catalogo') }}">
+                                <div class="mt-1">
+                                    <svg width="25px" height="25px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <defs>
+                                        <style>.cls-1{fill:none;stroke:#FFFFFF;stroke-miterlimit:10;stroke-width:1.91px;}</style>
+                                        </defs>
+                                        <g id="handbag">
+                                        <path class="cls-1" d="M3.41,7.23H20.59a0,0,0,0,1,0,0v12a3.23,3.23,0,0,1-3.23,3.23H6.64a3.23,3.23,0,0,1-3.23-3.23v-12A0,0,0,0,1,3.41,7.23Z"/>
+                                        <path class="cls-1" d="M8.18,10.09V5.32A3.82,3.82,0,0,1,12,1.5h0a3.82,3.82,0,0,1,3.82,3.82v4.77"/>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </a>
+                            <div class="md:mt-3 md:ml-2 mt-3" style="width: 2rem">
+                                @livewire('count-cart-quote')
                             </div>
-                        </a>
-                        <div class="md:mt-3 md:ml-2 mt-3" style="width: 2rem">
-                            @livewire('count-cart-quote')
-                        </div>
-                    @endrole
+                        
 
-                    @role('seller')
-                        <div class="md:mt-8 md:ml-2" style="width: 2rem">
-                            @livewire('count-messages-support')
-                        </div>
-                    @endrole
-                </div>
+                        {{-- @role('seller')
+                            <div class="md:mt-8 md:ml-2" style="width: 2rem">
+                                @livewire('count-messages-support')
+                            </div>
+                        @endrole --}}
+                    </div>
+                @endrole
             </div>
             
             
@@ -348,8 +350,12 @@
                                 class="w-full text-left text-base block px-4 py-2 text-white hover:text-[#0F0E24] hover:bg-white">Compradores</a>
                             </li>
                             <li>
-                                <a href="{{ route('seller.pedidos') }}"
+                                <a href="{{ route('compras') }}"
                                 class="w-full text-left text-base block px-4 py-2 text-white hover:text-[#0F0E24] hover:bg-white">Compras</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('special') }}"
+                                class="w-full text-left text-base block px-4 py-2 text-white hover:text-[#0F0E24] hover:bg-white">Especiales</a>
                             </li>
                             <li>
                                 <a href="{{ route('seller.muestras') }}"

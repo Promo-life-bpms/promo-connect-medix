@@ -22,6 +22,7 @@ class CreateSpecialRequest extends Migration
             $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
+
     }
 
     /**

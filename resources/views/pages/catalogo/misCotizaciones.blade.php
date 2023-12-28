@@ -21,30 +21,24 @@
         <h1 class=" mt-8 text-2xl font-semibold mb-8"> Mis Cotizaciones</h1> 
 
         <div class="flex">
-            <!-- Primer elemento del flex -->
             <div class="w-1/2 mr-8">
-                <!-- Card dentro del primer elemento -->
                 <div class="bg-white p-4 rounded shadow">
                     <h2 class="text-xl font-bold mb-2">N° de cotización:</h2>
                     <p class="text-bold text-4xl">{{count($quotes) }}</p>
                 </div>
             </div>
         
-            <!-- Segundo elemento del flex -->
             <div class="w-1/2">
-                <!-- Card dentro del segundo elemento -->
                 <div class="bg-white p-4 rounded shadow">
                     <h2 class="text-xl font-bold mb-2">Total: </h2>
                     <p class="text-bold text-4xl">$ {{ $totalGeneral }}</p>
                 </div>
             </div>
         
-            <!-- Tercer elemento del flex -->
             <div class="w-1/2">
                 
             </div>
         
-            <!-- Cuarto elemento del flex -->
             <div class="w-1/2">
                 
             </div>
@@ -55,17 +49,17 @@
         <div class="w-full">
             <table class="table-auto">
                 <thead>
-                    <tr class="bg-black text-white p-4">
+                    <tr class="bg-blue-900 text-white">
                         <th style="width:5%;">Cotizacion</th>
                         <th style="width:5%;">Logo</th>
-                        <th style="width:20%;">Producto</th>
+                        <th style="width:10%;">Producto</th>
                         <th style="width:10%;">Tecnica</th>
-                        <th style="width:25%;">Detalles</th>
-                        <th style="width:5%;">Tiempo de entrega</th>
-                        <th style="width:5%;">Cantidad</th>
-                        <th style="width:5%;">Precio unitario</th>
-                        <th>Total</th>
-                        <th></th>
+                        <th style="width:20%;">Detalles</th>
+                        <th style="width:10%;">Tiempo de entrega</th>
+                        <th style="width:10%;">Cantidad</th>
+                        <th style="width:10%;">Precio unitario</th>
+                        <th style="width:10%;">Total</th>
+                        <th style="width:10%;"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -79,7 +73,7 @@
                             $totalGeneral += intval($product->precio_total);
                         @endphp
                         
-                        <tr>
+                        <tr class="border">
                             <td class="text-center"><b>SQ-{{$quote->id}}</b></td>
                             <td class="text-center">
                                 @if($quote->logo == null || $quote->logo == '')
@@ -102,8 +96,16 @@
                                 <form method="POST" action="{{ route('downloadPDF') }}">
                                     @csrf
                                     <input type="hidden" name="id" value="{{ $quote->id }}">
-                                    <button type="submit" class="bg-primary hover:bg-primary text-white font-bold p-2 rounded">
-                                        Descargar cotización
+                                    <button type="submit" class="w-full bg-primary hover:bg-primary text-white font-bold p-2 rounded text-sm">
+                                        Descargar cotizacion
+                                    </button>
+                                </form>
+
+                                <form method="POST" action="{{ route('compras.realizarcompra') }}">
+                                    @csrf
+                                    <input type="hidden" name="id" value="{{ $quote->id }}">
+                                    <button type="submit" class="w-full bg-green-500 hover:bg-green-700 text-white font-bold p-2 rounded text-sm">
+                                        Realizar compra
                                     </button>
                                 </form>
                             </td>

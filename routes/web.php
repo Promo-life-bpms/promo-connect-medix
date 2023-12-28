@@ -41,7 +41,12 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/filter-category/{category}', [CotizadorController::class, 'categoryfilter'])->name('categoryfilter');
     Route::get('/catalogo', [CotizadorController::class, 'catalogo'])->name('catalogo');
     Route::get('/catalogo/{product}', [CotizadorController::class, 'verProducto'])->name('show.product');
-    Route::get('/mis-compras', [CotizadorController::class, 'cotizaciones'])->name('compras');
+/*     Route::get('/mis-compras', [CotizadorController::class, 'cotizaciones'])->name('compras');
+ */    
+    Route::get('/mis-compras', [CotizadorController::class, 'compras'])->name('compras');
+    Route::post('/mis-compras/actualizar', [CotizadorController::class, 'comprasStatus'])->name('compras.status');
+    Route::post('/mis-compras/realizar-compra', [CotizadorController::class, 'comprasRealizarCompra'])->name('compras.realizarcompra');
+
     Route::get('/mis-muestras', [CotizadorController::class, 'muestras'])->name('muestras');
     Route::get('/carrito', [CotizadorController::class, 'cotizacion'])->name('cotizacion');
     Route::get('/carrito/muestra/{id}', [CotizadorController::class, 'procesoMuestra'])->name('procesoMuestra');

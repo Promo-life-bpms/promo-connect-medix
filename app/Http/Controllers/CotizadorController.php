@@ -13,6 +13,15 @@ use App\Models\Muestra;
 use App\Models\Quote;
 use App\Models\QuoteDiscount;
 use App\Models\QuoteInformation;
+use App\Models\QuoteProducts;
+use App\Models\QuoteTechniques;
+use App\Models\QuoteUpdate;
+use App\Models\Shopping;
+use App\Models\ShoppingDiscount;
+use App\Models\ShoppingInformation;
+use App\Models\ShoppingProduct;
+use App\Models\ShoppingTechnique;
+use App\Models\ShoppingUpdate;
 use App\Models\User;
 use App\Notifications\PurchaseMadeNotification;
 use Illuminate\Support\Facades\Storage;
@@ -24,6 +33,7 @@ use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Livewire\WithPagination;
 use SimpleXMLElement;
 
@@ -189,6 +199,12 @@ class CotizadorController extends Controller
     {
         return view('pages.catalogo.cotizaciones');
     }
+
+    public function compras()
+    {
+        return view('pages.catalogo.compras');
+    }
+
     public function muestras()
     {
         return view('pages.catalogo.muestras');
@@ -462,5 +478,91 @@ class CotizadorController extends Controller
         }
     
         return view('pages.catalogo.misCotizaciones', compact('quotes'));
+    }
+
+    public function comprasStatus(Request $request) {
+
+        DB::table('shoppings')->where('id', $request->shopping_id)->update([
+            'status' => $request->status,
+        ]);
+
+        return redirect()->action([CotizadorController::class, 'compras']);
+    }
+
+    public function comprasRealizarCompra(Request $request) {
+ 
+        $quote = Quote::where('id', $request->id )->get()->first();
+        $quote_products = QuoteProducts::where('id', $request->id )->get()->first();
+        $quote_techniques = QuoteTechniques::where('id', $request->id )->get()->first();
+        $quote_updates = QuoteUpdate::where('id', $request->id )->get()->first();
+/*         $quote_update_product = QuoteProducts::where('id', $request->id )->get()->first();
+ */
+        if($quote){
+            $createQuote = new Shopping(); 
+            $createQuote->user_id = $quote->user_id;
+            $createQuote->address_id = $quote->address_id;
+            $createQuote->iva_by_item = $quote->iva_by_item;
+            $createQuote->show_total = $quote->show_total;
+            $createQuote->logo = $quote->logo;
+            $createQuote->status = 0;
+            $createQuote->save();
+        } 
+
+        $createQuoteDiscount = new ShoppingDiscount();
+        $createQuoteDiscount->discount = 0;
+        $createQuoteDiscount->type = 'Fijo';
+        $createQuoteDiscount->value = 0.00;
+        $createQuoteDiscount->save();
+
+        $createQuoteInformation = new ShoppingInformation();
+        $createQuoteInformation->name = 'Cliente';
+        $createQuoteInformation->email = 'email';
+        $createQuoteInformation->landline = '1';
+        $createQuoteInformation->cell_phone = '1';
+        $createQuoteInformation->oportunity = 'Oportunidad';
+        $createQuoteInformation->rank = '1';
+        $createQuoteInformation->department = 'Departamento';
+        $createQuoteInformation->information = 'Info';
+        $createQuoteInformation->tax_fee = 0;
+        $createQuoteInformation->shelf_life = 10;
+        $createQuoteInformation->save();
+
+        $createQuoteProduct = new ShoppingProduct();
+        $createQuoteProduct->product = $quote_products->product;
+        $createQuoteProduct->technique = $quote_products->technique;
+        $createQuoteProduct->prices_techniques = $quote_products->prices_techniques;
+        $createQuoteProduct->color_logos = $quote_products->color_logos;
+        $createQuoteProduct->costo_indirecto = $quote_products->costo_indirecto;
+        $createQuoteProduct->utilidad = $quote_products->utilidad;
+        $createQuoteProduct->dias_entrega = $quote_products->dias_entrega;
+        $createQuoteProduct->cantidad = $quote_products->cantidad;
+        $createQuoteProduct->precio_unitario = $quote_products->precio_unitario;
+        $createQuoteProduct->precio_total = $quote_products->precio_total;
+        $createQuoteProduct->shopping_by_scales = 0;
+        $createQuoteProduct->scales_info = $quote_products->scales_info;
+        $createQuoteProduct->shopping_id = $createQuote->id;
+        $createQuoteProduct->save();
+
+        /* if($quote_updates){
+            $createQuoteUpdate = new ShoppingUpdate();
+            $createQuoteUpdate->shopping_id = $createQuote->id;
+            $createQuoteUpdate->shopping_information_id = $quote_updates->shopping_information_id;
+            $createQuoteUpdate->shopping_discount_id = $quote_updates->shopping_discount_id;
+            $createQuoteUpdate->type = 'created';
+            $createQuoteUpdate->save();
+        } */
+
+        if($quote_techniques){
+            $createQuoteTechniques = new ShoppingTechnique();
+            $createQuoteTechniques->quotes_id = $createQuote->id;
+            $createQuoteTechniques->material =  $quote_techniques->material->material;
+            $createQuoteTechniques->technique = $quote_techniques->technique->technique;
+            $createQuoteTechniques->size = $quote_techniques->size->size;
+            $createQuoteTechniques->save();
+        }
+            
+        
+        return redirect()->back();
+
     }
 }
