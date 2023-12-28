@@ -561,8 +561,7 @@ class CotizadorController extends Controller
             $createQuoteTechniques->save();
         }
             
-        
-        return redirect()->back();
+        return redirect()->back()->with('message', 'Este es tu mensaje de sesión.');
 
     }
 }

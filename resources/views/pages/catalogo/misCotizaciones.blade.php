@@ -18,6 +18,12 @@
             }
            
         @endphp
+
+        @if(session('message'))
+            <div class="bg-green-500 text-white p-4 mb-4">
+                <p class="text-lg">¡Éxito! Se ha iniciado el proceso de compra de tu producto, puedes checar el proceso en la sección <b>MIS COMPRAS</b> .</p>
+            </div>
+        @endif
         <h1 class=" mt-8 text-2xl font-semibold mb-8"> Mis Cotizaciones</h1> 
 
         <div class="flex">
