@@ -111,7 +111,7 @@
                                     @csrf
                                     <input type="hidden" name="id" value="{{ $quote->id }}">
                                     <button type="submit" class="w-full bg-green-500 hover:bg-green-700 text-white font-bold p-2 rounded text-sm">
-                                        Realizar compra
+                                        Confirmar compra
                                     </button>
                                 </form>
                             </td>
