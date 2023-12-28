@@ -9,7 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" type="image/x-icon" href="{{ asset('img/favicon.ico')}}">
 
-    <title>Anahuac</title>
+    <title>Medix</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>

@@ -11,7 +11,7 @@
     <title>
         @hasSection('title')
             @yield('title') |
-        @endif {{ config('app.name', 'Laravel') }}
+        @endif {{ config('app.name', 'Medix') }}
     </title>
 
     <!-- Fonts -->
