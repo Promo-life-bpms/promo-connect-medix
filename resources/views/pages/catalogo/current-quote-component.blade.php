@@ -217,63 +217,63 @@
         </div>
     </div>
 
-    <div wire:ignore.self
-        class="hidden bg-slate-800 bg-opacity-50 justify-center items-center absolute top-0 right-0 bottom-0 left-0"
-        id="modalSolicitarMuestra">
+    <div wire:ignore.self class="hidden bg-slate-800 bg-opacity-50 justify-center items-center absolute top-0 right-0 bottom-0 left-0" id="modalSolicitarMuestra">
         <div class="bg-white px-16 py-6 rounded-sm text-center" style="width: 600px">
             <p class="text-xl mb-4 font-bold">Ingresa los datos para hacerte llegar la muestra</p>
             <div class="grid grid-cols-3 px-4">
-
+    
                 <div class="col-span-1 py-2 text-left">
                     <label for="tipo_evento">Tipo de muestra</label>
-                   
                 </div>
-
+    
                 <div class="col-span-2 py-2 flex flex-coll">
                     <select id="type_sample" name="type_sample" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" wire:model="type_sample">
-                        <option value="virtual sin logotipo" >Muestra virtual sin Logotipo</option>
                         <option value="fisica sin logotipo" selected>Muestra física sin Logotipo</option>
-                        <option value="virtual con logotipo" >Muestra virtual con logotipo</option>
-                        <option value="logotipo con logotipo">Muestra física con logotipo</option>
+                        <option value="fisica con logotipo">Muestra física con logotipo</option>
+                        <option value="virtual sin logotipo">Muestra virtual sin Logotipo</option>
+                        <option value="virtual con logotipo">Muestra virtual con logotipo</option>
                     </select>
                 </div>
+    
+                {{-- Nombre --}}
                 <div class="col-span-1 py-2 text-left">
                     <label for="nombre">Nombre: </label>
                 </div>
-                <div class="col-span-2 py-2 flex flex-col">
-                    <input type="text" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                        wire:model="nombre">
+                <div class="col-span-2 py-2 flex flex-col @if($type_sample == 'virtual sin logotipo' || $type_sample == 'virtual con logotipo') hidden @endif">
+                    <input type="text" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" wire:model="nombre">
                     @error('nombre')
-                        <span>{{ $message }}</span>
+                    <span>{{ $message }}</span>
                     @enderror
                 </div>
-                <div class="col-span-1 py-2 text-left">
+    
+                {{-- Teléfono --}}
+                <div class="col-span-1 py-2 text-left @if($type_sample == 'virtual sin logotipo' || $type_sample == 'virtual con logotipo') hidden @endif">
                     <label for="telefono">Telefono: </label>
                 </div>
-                <div class="col-span-2 py-2">
-                    <input type="text" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                        wire:model="telefono">
+                <div class="col-span-2 py-2 @if($type_sample == 'virtual sin logotipo' || $type_sample == 'virtual con logotipo') hidden @endif">
+                    <input type="text" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" wire:model="telefono">
                     @error('telefono')
-                        <span>{{ $message }}</span>
+                    <span>{{ $message }}</span>
                     @enderror
                 </div>
-                <div class="col-span-1 py-2 text-left">
+    
+                {{-- Dirección --}}
+                <div class="col-span-1 py-2 text-left @if($type_sample == 'virtual sin logotipo' || $type_sample == 'virtual con logotipo') hidden @endif">
                     <label for="direcion">Direccion: </label>
                 </div>
-                <div class="col-span-2 py-2">
-                    <textarea name="" id="" cols="10" rows="3"
-                        class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" wire:model="direccion"></textarea>
+                <div class="col-span-2 py-2 @if($type_sample == 'virtual sin logotipo' || $type_sample == 'virtual con logotipo') hidden @endif">
+                    <textarea name="" id="" cols="10" rows="3" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" wire:model="direccion"></textarea>
                     @error('direccion')
-                        <span>{{ $message }}</span>
+                    <span>{{ $message }}</span>
                     @enderror
                 </div>
+    
             </div>
             <button class="px-3 py-1 text-md " onclick="closeModal()">Cancelar</button>
-            <button class="px-5 py-1 ml-2 rounded-sm text-md text-white font-semibold bg-primary hover:bg-primary-dark"
-                wire:click="solicitarMuestra">Enviar</button>
+            <button class="px-5 py-1 ml-2 rounded-sm text-md text-white font-semibold bg-primary hover:bg-primary-dark" wire:click="solicitarMuestra">Enviar</button>
         </div>
-
     </div>
+
     <script>
         function solicitarMuestra(id) {
             let modal = document.querySelector('#modalSolicitarMuestra')
