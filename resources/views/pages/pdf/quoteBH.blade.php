@@ -2,12 +2,14 @@
 <html lang="en">
 
 <head>
-    <title>Cotizacion Promolife</title>
+    <title>Cotizacion</title>
     <link rel="stylesheet" href="quotesheet/bh/stylebh.css">
+    <link rel="stylesheet" href="quotesheet/pz/style.css">
+
 </head>
 
 <body>
-    <style>
+  {{--   <style>
       
         table {
             font-family: arial, sans-serif;
@@ -24,9 +26,24 @@
             border-color: #006EAD;
         }
         
-    </style>
+    </style> --}}
+
     <header>
-        {{-- <img src="quotesheet/bh/triangulos.png" alt="" srcset="" class="fondo-head"> --}}
+        <img src="quotesheet/pz/fondo-azul-superior.png" alt="" srcset="" class="fondo-head">
+        <table class="head content">
+            <tr>
+                <td rowspan="3"><img src="quotesheet/pz/logo.jpg" class="logo"></td>
+                <td colspan="6" class="company">PROMO ZALE S.A. DE C.V.</td>
+            </tr>
+            <tr>
+                <td style="text-align: left;" colspan="6" class="company-quote">Cotizacion</td>
+            </tr>
+        </table>
+    </header>
+
+    {{-- <img src="quotesheet/bh/triangulos.png" alt="" srcset="" class="fondo-head"> --}}
+
+    {{-- <header>
         
         <table style=" margin-bottom:16px;">
             <tr>
@@ -48,9 +65,9 @@
                 </td>
             </tr>
         </table>
-    </header>
+    </header> --}}
 
-    <footer>
+    {{-- <footer>
         <table class="footer content">
             <tr>
                 <td colspan="3">
@@ -66,6 +83,28 @@
         <div style="text-align: right">
             <p class="content">Pagina <span class="pagenum"></span></p>
         </div>
+    </footer> --}}
+
+    <footer>
+        <table
+            style="magin-bottom: 0mm; position: absolute; bottom: 22mm; z-index: 20; width: 100%; margin-left: -10px;">
+            <tr>
+                <td>
+                    <img src="quotesheet/pz/fondo-azul-inferior.png" />
+                </td>
+            </tr>
+        </table>
+
+        <table style="magin-bottom: 0mm; position: absolute; bottom: 60px; z-index:100;" class="content">
+            <tr>
+                <td>
+                    <p style="font-size: 12px; margin-left:3px; color:#fff;">Pagina <span class="pagenum"></span> </p>
+                    <br>
+                    <p style="font-size: 12px; margin-left:3px; color:#fff; text-transform: uppercase">San Andr&#233;s
+                        Atoto 155, San Est&#233;ban, Naucalpan, Edo. Méx. C.P. 53550 <br></p>
+                </td>
+            </tr>
+        </table>
     </footer>
     
     <div style="margin-left:30px; margin-right:30px; margin-top:8px;">
@@ -108,7 +147,6 @@
 
                 <br>
                 <p style="margin-left:60px;">Cotizacion: <b>SQ-{{ $quote->id }}</b></p>
-               <p style='font-size:6px;'>{{$encodedUrl}}</p>
                 <table border="1" >
                     <tr>
                         <th style="width:30%" >Imagen de Referencia</th>
@@ -149,8 +187,6 @@
                 </table>
             <br>
         @endforeach
-              
-                
           
            
     </div>
@@ -161,6 +197,8 @@
             <li>Condiciones de pago acordadas en el contrato</li>
             <li>Precios unitarios mostrados antes de IVA</li>
             <li>Precios mostrados en pesos mexicanos (MXP)</li>
+            <li>Una vez realizada la cotización, la entrega de los productos se realizará en un plazo estimado de 10 días hábiles.</li>
+            <li>Antes de generar la cotización, le invitamos a verificar la disponibilidad actual de stock para garantizar la prontitud en el cumplimiento de su pedido.</li>
         </ul>
     </div>
 

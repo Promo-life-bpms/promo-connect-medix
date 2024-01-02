@@ -37,7 +37,7 @@
             <div class="w-1/2">
                 <div class="bg-white p-4 rounded shadow">
                     <h2 class="text-xl font-bold mb-2">Total: </h2>
-                    <p class="text-bold text-4xl">$ {{ $totalGeneral }}</p>
+                    <p class="text-bold text-4xl">$ {{ number_format($totalGeneral, 2, '.', ',') }}</p>
                 </div>
             </div>
         
@@ -97,7 +97,7 @@
                             <td class="text-center">{{ $product->dias_entrega}} dias</td>
                             <td class="text-center"> {{ $product->cantidad}} piezas</td>
                             <td class="text-center"> <b>$ {{ $product->precio_unitario}} </b>   </td>
-                            <td class="text-center"> <b>$ {{ $product->precio_total}}</b>  </td>
+                            <td class="text-center"> <b>$ {{ number_format($product->precio_total, 2, '.', ',') }} </b>  </td>
                             <td class="text-center"> 
                                 <form method="POST" action="{{ route('downloadPDF') }}">
                                     @csrf
