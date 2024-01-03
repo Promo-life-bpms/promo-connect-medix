@@ -124,24 +124,30 @@
                 $productImage = \App\Models\Catalogo\Image::where('product_id', $productData->id)->get()->first();
 
                 $productName = optional($productData)->name ?? 'Nombre no disponible';
-                
-                $logo = $productImage->image_url;
 
-                $filename = basename($logo);
+                $productLogo = optional($productData)->logo;
 
-                $encodedFilename = rawurlencode($filename);
+                if($productLogo != '' || $productLogo !=null){
+                    $filePath = public_path('/storage/logos/' . $productLogo);
+                }else{
+                    $logo = $productImage->image_url;
 
-                $encodedUrl = str_replace($filename, $encodedFilename, $logo);
+                    $filename = basename($logo);
 
-                $ch = curl_init($encodedUrl);
+                    $encodedFilename = rawurlencode($filename);
 
-                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                    $encodedUrl = str_replace($filename, $encodedFilename, $logo);
 
-                $imageData = curl_exec($ch);
+                    $ch = curl_init($encodedUrl);
 
-                curl_close($ch);
+                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-                $image64 = base64_encode($imageData);
+                    $imageData = curl_exec($ch);
+
+                    curl_close($ch);
+
+                    $image64 = base64_encode($imageData);
+                }
 
             @endphp
 
@@ -155,7 +161,12 @@
                     </tr>
                     <tr>
                         <td rowspan="6" style="width:30%"> 
+
+                        @if($productLogo != null || $productLogo != '')
+                            <center><img style="width:200px; height:240px; object-fit:contain;" src="{{$filePath}}" alt=""></center>
+                        @else
                             <center><img style="width:200px; height:240px; object-fit:contain;" src="data:image/png;base64,{{$image64}}" alt=""></center>
+                        @endif
                         </td>
                         <td colspan="3" style="width:70%; padding:2px;">{{ $productName }}</td>
                         

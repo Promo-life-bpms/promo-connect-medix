@@ -241,7 +241,8 @@ class CurrentQuoteComponent extends Component
             $cotizacion_techniques = CurrentQuotesTechniques::where('current_quotes_details_id', $cotizacion->id)->get()->first();
 
             $product = Product::find($cotizacion->product_id);
-            $product->logo = $cotizacionActual[0]->logo;       
+            
+            $product->logo = $cotizacion->logo;       
 
             if($product){
                 $createQuote = new Quote(); 
