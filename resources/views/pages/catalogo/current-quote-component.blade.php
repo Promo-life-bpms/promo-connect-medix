@@ -76,12 +76,16 @@
                         </div>
                         <div class="flex flex-col items-end space-y-2">
 
-                            <!-- @php
+                           {{--  <!-- @php
                                 $precioTotal = round(($quote->precio_total / ((100 - config('settings.utility_aditional')) / 100)) * 1.16, 2);
                             @endphp -->
 
                             @php
                                 $precioTotal = ($quote->precio_total);
+                            @endphp --}}
+
+                            @php
+                                $precioTotal = round(($quote->precio_total * 1.2));
                             @endphp
                             <p class="font-bold text-lg">$ {{ number_format($precioTotal, 2, '.', ',') }} + IVA</p>
                                 <!-- Modal toggle -->
@@ -169,7 +173,7 @@
                     <hr class="border-black"> --}}
                     <div class="flex justify-between">
                         <p>Total:</p>
-                        <p class="font-bold">$ {{ number_format($totalQuote, 2, '.', ',') }}</p>
+                        <p class="font-bold">$ {{ number_format(round($totalQuote * 1.2, 2), 2, '.', ',') }} </p>
                     </div>
                     <hr class="border-black">
                     <!-- <a href="{{ route('finalizar') }}" 
