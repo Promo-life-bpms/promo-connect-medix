@@ -116,7 +116,7 @@
                                     $priceProduct = round($priceProduct - $priceProduct * ($row->provider->discount / 100), 2);
                                 }
                                 $priceProduct = round($priceProduct / ((100 - $utilidad) / 100), 2);
-                                $priceProduct = round($priceProduct / ((100 - config('settings.utility_aditional')) / 100), 2);
+                               <!--  $priceProduct = round($priceProduct / ((100 - config('settings.utility_aditional')) / 100), 2); -->
                             @endphp
                             <div class="w-full flex justify-center  sm:p-5 sm:bg-white  text-center">
                                 <div class="">

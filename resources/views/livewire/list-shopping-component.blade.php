@@ -35,7 +35,7 @@
                       {{ $shopping->products[0]->cantidad }}
                     </td>
                     <td class="text-center">
-                      {{ $shopping->products[0]->precio_total }}
+                      {{ number_format($shopping->products[0]->precio_total, 2, '.', ',') }}
                     </td>
                     <td class="text-center">
                       {{ $shopping->products[0]->updated_at->format('d-m-Y') }}

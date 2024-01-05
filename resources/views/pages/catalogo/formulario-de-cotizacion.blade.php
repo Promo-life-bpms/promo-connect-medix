@@ -325,7 +325,7 @@
         <div class="form-group m-0 mb-1 ">
             <label for="newTechnique" class="text-dark m-0">
                 <strong>Dias de entrega:</strong>
-                {{ $entrega }}
+                10
             </label>
         </div>
         <div class="form-group m-0 mb-1 ">

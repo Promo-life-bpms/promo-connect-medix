@@ -39,7 +39,7 @@ class FormularioDeCotizacion extends Component
 
     public function mount()
     {
-        $this->utilidad = config('settings.utility_aditional');
+        $this->utilidad = config('settings.utility');
         // $this->priceScales = false;
         if ($this->currentQuote) {
             $this->product = Product::find($this->currentQuote->product_id);

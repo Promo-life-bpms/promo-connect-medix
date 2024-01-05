@@ -141,12 +141,13 @@ class CurrentQuoteComponent extends Component
 
     public function solicitarMuestra()
     {
-        $this->validate([
-            'nombre' => 'required',
-            'telefono' => 'required',
-            'direccion' => 'required',
-        ]);
-
+        if($this->type_sample == null || $this->type_sample == 'fisica sin logotipo' || $this->type_sample == 'fisica con logotipo' ){
+            $this->validate([
+                'nombre' => 'required',
+                'telefono' => 'required',
+                'direccion' => 'required',
+            ]);
+        }
 
         $msg = "";
         $error = false;
@@ -157,10 +158,10 @@ class CurrentQuoteComponent extends Component
                 $msg = "Ya has solicitado 3 muestras de este producto";
             } else {
                 $muestra = auth()->user()->sampleRequest()->create([
-                    'address' => $this->direccion,
-                    'phone' => $this->telefono,
-                    'name' => $this->nombre,
-                    'type' => $this->type_sample == null? 'virtual sin logotipo' : $this->type_sample,
+                    'address' => $this->direccion == null? 'virtual':  $this->direccion,
+                    'phone' => $this->telefono == null? 'virtual':  $this->telefono,
+                    'name' => $this->nombre == null? 'virtual':  $this->nombre,
+                    'type' => $this->type_sample == null? 'fisica sin logotipo' : $this->type_sample,
                     'product_id' => $ccd->product->id,
                     'status' => 1,
                     'current_quote_id' => $ccd->id,
@@ -240,6 +241,8 @@ class CurrentQuoteComponent extends Component
             $cotizacion_techniques = CurrentQuotesTechniques::where('current_quotes_details_id', $cotizacion->id)->get()->first();
 
             $product = Product::find($cotizacion->product_id);
+            
+            $product->logo = $cotizacion->logo;       
 
             if($product){
                 $createQuote = new Quote(); 

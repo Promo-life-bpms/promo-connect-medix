@@ -13,7 +13,7 @@
                         $priceProduct = round($priceProduct - $priceProduct * ($product->provider->discount / 100), 2);
                     }
                     $priceProduct = round($priceProduct / ((100 - $utilidad) / 100), 2);
-                    $priceProduct = round($priceProduct / ((100 - config('settings.utility_aditional')) / 100), 2);
+                    <!-- $priceProduct = round($priceProduct / ((100 - config('settings.utility_aditional')) / 100), 2); -->
                 @endphp
             @endif
 
