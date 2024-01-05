@@ -85,7 +85,7 @@
                             @endphp --}}
 
                             @php
-                                $precioTotal = round(($quote->precio_total * 1.2));
+                                $precioTotal = round(($quote->precio_total ));
                             @endphp
                             <p class="font-bold text-lg">$ {{ number_format($precioTotal, 2, '.', ',') }} + IVA</p>
                                 <!-- Modal toggle -->
@@ -173,7 +173,7 @@
                     <hr class="border-black"> --}}
                     <div class="flex justify-between">
                         <p>Total:</p>
-                        <p class="font-bold">$ {{ number_format(round($totalQuote * 1.2, 2), 2, '.', ',') }} </p>
+                        <p class="font-bold">$ {{ number_format(round($totalQuote, 2), 2, '.', ',') }} </p>
                     </div>
                     <hr class="border-black">
                     <!-- <a href="{{ route('finalizar') }}" 
