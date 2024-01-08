@@ -7,6 +7,7 @@ use App\Models\Quote;
 use App\Models\QuoteTechniques;
 use App\Models\SpecialRequest;
 use App\Models\User;
+use App\Notifications\SendEmailCotizationNotification;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Dompdf\Dompdf;
@@ -69,8 +70,12 @@ class CotizacionController extends Controller
         $user = auth()->user();
         $quotes = Quote::where('user_id', $user->id)->where('id',$request->id)->get();
         
-       /*  dd($quotes[0]->currentQuotesTechniques); */
-        
+        $recipients = [
+            'daniel@trademarket.com.mx',
+            'ugamboa@medix.com.mx',
+            'jsantos@medix.com.mx',
+        ];
+
         $pdf = \PDF::loadView('pages.pdf.quoteBH', ['date' => $date, 'quotes' => $quotes]);
         $pdf->setPaper('Letter', 'portrait');
         $filename = "Cotizacion.pdf";
