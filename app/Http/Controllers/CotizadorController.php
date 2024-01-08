@@ -24,8 +24,10 @@ use App\Models\ShoppingTechnique;
 use App\Models\ShoppingUpdate;
 use App\Models\User;
 use App\Notifications\PurchaseMadeNotification;
+use App\Notifications\SendEmailCotizationNotification;
 use Illuminate\Support\Facades\Storage;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Carbon\Carbon;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -34,6 +36,7 @@ use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Notification;
 use Livewire\WithPagination;
 use SimpleXMLElement;
 
@@ -560,6 +563,21 @@ class CotizadorController extends Controller
             $createQuoteTechniques->size = $quote_techniques->size->size;
             $createQuoteTechniques->save();
         }
+
+        $recipients = [
+            'daniel@trademarket.com.mx',
+            'ugamboa@medix.com.mx',
+            'jsantos@medix.com.mx',
+        ];
+
+        $date = Carbon::now()->format("d/m/Y");
+
+    
+        Notification::route('mail', [
+            'daniel@trademarket.com.mx',
+            'ugamboa@medix.com.mx',
+            'jsantos@medix.com.mx',
+        ])->notify(new SendEmailCotizationNotification($date, $quote));
             
         return redirect()->back()->with('message', 'Este es tu mensaje de sesión.');
 

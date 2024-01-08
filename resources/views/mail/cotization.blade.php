@@ -12,14 +12,14 @@ Fecha: **{{ $date }}**
 
 ---
 
-@foreach($quotes as $quote)
-
+<!-- @foreach($quotes as $quote)
+ -->
 ---
 
     @php
         try {
-            if ($quote->logo != null) {
-                $logo = public_path('/storage/logos/' . $quote->logo);
+            if ($quotes->logo != null) {
+                $logo = public_path('/storage/logos/' . $quotes->logo);
                 $image64 = base64_encode(file_get_contents($logo));
             } else {
                 $logo = public_path('img/default.jpg');
@@ -30,9 +30,9 @@ Fecha: **{{ $date }}**
             $image64 = base64_encode(file_get_contents($logo));
         }
 
-        $quoteTechnique = \App\Models\QuoteTechniques::where('quotes_id',$quote->id)->get()->last();
+        $quoteTechnique = \App\Models\QuoteTechniques::where('quotes_id',$quotes->id)->get()->last();
 
-        $product = \App\Models\QuoteProducts::where('id', $quote->id)->get()->last();
+        $product = \App\Models\QuoteProducts::where('id', $quotes->id)->get()->last();
         $productData = json_decode($product->product);
 
         $productName = isset($productData->name) ? $productData->name : 'Nombre no disponible';
@@ -40,7 +40,7 @@ Fecha: **{{ $date }}**
             
     @endphp
 
-#Cotizacion: **SQ-{{ $quote->id }}**
+#Cotizacion: **SQ-{{ $quotes->id }}**
 
 ![Imagen de Referencia](data:image/png;base64,{{$image64}})
 
@@ -48,7 +48,7 @@ Fecha: **{{ $date }}**
 {{ $productName }}
 
 ### Técnica de Personalización
-| Descripción                      | {{ isset($quote->currentQuotesTechniques->technique) ? $quote->currentQuotesTechniques->technique : '' }} |
+| Descripción                      | {{ isset($quotes->currentQuotesTechniques->technique) ? $quotes->currentQuotesTechniques->technique : '' }} |
 |----------------------------------|-------------------------------------------------------------------------------------------------------------------|
 | Material                         | {{ isset($quoteTechnique->material) ? $quoteTechnique->material : '' }}                                           |
 | Tamaño                           | {{ isset($quoteTechnique->size) ? $quoteTechnique->size : '' }}                                                   |
@@ -62,7 +62,7 @@ Fecha: **{{ $date }}**
 
 ---
 
-@endforeach
+<!-- @endforeach -->
 
 ---
 
