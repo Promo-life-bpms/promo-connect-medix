@@ -12,23 +12,7 @@ Fecha: **{{ $date }}**
 
 ---
 
-<!-- @foreach($quotes as $quote)
- -->
----
-
     @php
-        try {
-            if ($quotes->logo != null) {
-                $logo = public_path('/storage/logos/' . $quotes->logo);
-                $image64 = base64_encode(file_get_contents($logo));
-            } else {
-                $logo = public_path('img/default.jpg');
-                $image64 = base64_encode(file_get_contents($logo));
-            }
-        } catch (\Exception $e) {
-            $logo = public_path('img/default.jpg');
-            $image64 = base64_encode(file_get_contents($logo));
-        }
 
         $quoteTechnique = \App\Models\QuoteTechniques::where('quotes_id',$quotes->id)->get()->last();
 
@@ -42,8 +26,6 @@ Fecha: **{{ $date }}**
 
 #Cotizacion: **SQ-{{ $quotes->id }}**
 
-{{-- ![Imagen de Referencia](data:image/png;base64,{{$image64}})
- --}}
 ## Descripción
 {{ $productName }}
 
@@ -61,8 +43,6 @@ Fecha: **{{ $date }}**
 | {{ $product->cantidad }} piezas | {{ $product->precio_unitario }} | {{ $product->precio_total }} |
 
 ---
-
-<!-- @endforeach -->
 
 ---
 
