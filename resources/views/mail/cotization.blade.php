@@ -42,8 +42,8 @@ Fecha: **{{ $date }}**
 
 #Cotizacion: **SQ-{{ $quotes->id }}**
 
-![Imagen de Referencia](data:image/png;base64,{{$image64}})
-
+{{-- ![Imagen de Referencia](data:image/png;base64,{{$image64}})
+ --}}
 ## Descripción
 {{ $productName }}
 
