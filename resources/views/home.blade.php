@@ -15,10 +15,12 @@
             @foreach ($banners as $item)
                 <div class="hidden duration-700 ease-in-out" data-carousel-item>
                     <img src="{{ asset('storage/banners/' . $item->url_banner) }}"
-                        class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                        class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." style="z-index:1;">
                 </div>
             @endforeach
+
         </div>
+
         <!-- Slider indicators -->
         <div class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
             @for ($i = 0; $i < count($banners); $i++)
@@ -51,7 +53,13 @@
                 <span class="sr-only">Next</span>
             </span>
         </button>
+
     </div>
+
+    <div class="flex justify-center items-center">
+        <a href="{{ asset('img/MEDIX.mp4') }}"  class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"  style="z-index:30; position:absolute; margin-top:-160px;" target="__blank">ver video</a>
+    </div>
+
     <div class="container mx-auto max-w-7xl">
         <div class="w-full bg-primary">
             <div class="container mx-auto max-w-7xl py-1">
