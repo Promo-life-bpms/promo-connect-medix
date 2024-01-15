@@ -117,6 +117,7 @@ class Catalogo extends Component
             ->select('products.*')
             ->paginate(32);
 
+      
         return view('pages.catalogo.catalogoComponent', [
             'products' => $products,
             'categories' => $categories,

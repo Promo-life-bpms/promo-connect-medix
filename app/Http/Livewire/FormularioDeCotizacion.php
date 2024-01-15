@@ -90,13 +90,15 @@ class FormularioDeCotizacion extends Component
         }
 
         $utilidad = (float) config('settings.utility');
-        $priceProduct = $this->product->price;
-        if ($this->product->producto_promocion) {
+        $priceProduct = $this->product->price * 0.9375;
+ 
+        /* if ($this->product->producto_promocion) {
             $priceProduct = round($priceProduct - $priceProduct * ($this->product->descuento / 100), 2);
         } else {
             $priceProduct = round($priceProduct - $priceProduct * ($this->product->provider->discount / 100), 2);
         }
-        $this->precio = round($priceProduct / ((100 - $utilidad) / 100), 2);
+        $this->precio = round($priceProduct / ((100 - $utilidad) / 100), 2); */
+        $this->precio = $priceProduct ;
         $this->precioCalculado = $this->precio;
     }
 
@@ -190,8 +192,8 @@ class FormularioDeCotizacion extends Component
             $this->costoCalculado = $this->precio + ($precioDeTecnicaUsado * $this->colores) + $this->operacion;
             $this->costoTotal = $this->costoCalculado * $this->cantidad;
 
-            $this->precioCalculado = round(($this->costoCalculado) / ((100 - $this->utilidad) / 100), 2);
-            $this->precioTotal = $this->precioCalculado * $this->cantidad;
+            $this->precioCalculado = ($this->costoCalculado) / ((100 - 0.0625) / 100);
+            $this->precioTotal = $this->precioCalculado *  $this->cantidad;
         }
 
         $this->precioDeTecnica = $precioDeTecnica;

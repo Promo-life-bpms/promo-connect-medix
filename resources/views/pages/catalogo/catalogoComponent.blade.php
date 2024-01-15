@@ -109,13 +109,16 @@
                         <div
                             class="flex sm:block gap-2 sm:bg-transparent bg-white rounded-md sm:rounded-none p-2 sm:p-0">
                             @php
-                                $priceProduct = $row->price;
+                                /* $priceProduct = $row->price;
                                 if ($row->producto_promocion) {
                                     $priceProduct = round($priceProduct - $priceProduct * ($row->descuento / 100), 2);
                                 } else {
                                     $priceProduct = round($priceProduct - $priceProduct * ($row->provider->discount / 100), 2);
                                 }
-                                $priceProduct = round($priceProduct / ((100 - $utilidad) / 100), 2);
+                                $priceProduct = round($priceProduct / ((100 - $utilidad) / 100), 2); */
+
+                                $priceProduct = round($row->price * 0.9375, 2);
+
                               
                             @endphp
                             <div class="w-full flex justify-center  sm:p-5 sm:bg-white  text-center">
