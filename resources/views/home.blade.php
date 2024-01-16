@@ -78,7 +78,7 @@
                 @endforeach
             </div>
         </div>
-        <div class="w-full bg-gray-800">
+        <div class="w-full">
             <div class="container mx-auto max-w-7xl py-1">
                 <div class="flex justify-center bg-primary">
                     <span class="text-center text-white p-1">CATEGORÍAS

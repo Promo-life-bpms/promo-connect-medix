@@ -34,7 +34,7 @@ html {
   -moz-tab-size: 4; /* 3 */
   -o-tab-size: 4;
      tab-size: 4; /* 3 */
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 4 */
+  font-family: Arial, sans-serif; /* 4 */
   font-feature-settings: normal; /* 5 */
   font-variation-settings: normal; /* 6 */
 }
@@ -1956,11 +1956,11 @@ input:checked + .toggle-bg {
 }
 .bg-primary {
   --tw-bg-opacity: 1;
-  background-color: rgb(19 70 146 / var(--tw-bg-opacity));
+  background-color: rgb(12 109 173 / var(--tw-bg-opacity));
 }
 .bg-primary-dark {
   --tw-bg-opacity: 1;
-  background-color: rgb(19 70 146 / var(--tw-bg-opacity));
+  background-color: rgb(12 109 173 / var(--tw-bg-opacity));
 }
 .bg-red-400 {
   --tw-bg-opacity: 1;
@@ -2392,11 +2392,11 @@ input:checked + .toggle-bg {
 }
 .text-primary {
   --tw-text-opacity: 1;
-  color: rgb(19 70 146 / var(--tw-text-opacity));
+  color: rgb(12 109 173 / var(--tw-text-opacity));
 }
 .text-primary-dark {
   --tw-text-opacity: 1;
-  color: rgb(19 70 146 / var(--tw-text-opacity));
+  color: rgb(12 109 173 / var(--tw-text-opacity));
 }
 .text-red-500 {
   --tw-text-opacity: 1;
@@ -2717,12 +2717,12 @@ input:checked + .toggle-bg {
 
 .hover\:bg-primary:hover {
   --tw-bg-opacity: 1;
-  background-color: rgb(19 70 146 / var(--tw-bg-opacity));
+  background-color: rgb(12 109 173 / var(--tw-bg-opacity));
 }
 
 .hover\:bg-primary-dark:hover {
   --tw-bg-opacity: 1;
-  background-color: rgb(19 70 146 / var(--tw-bg-opacity));
+  background-color: rgb(12 109 173 / var(--tw-bg-opacity));
 }
 
 .hover\:bg-red-800:hover {
@@ -2792,7 +2792,7 @@ input:checked + .toggle-bg {
 
 .hover\:text-primary:hover {
   --tw-text-opacity: 1;
-  color: rgb(19 70 146 / var(--tw-text-opacity));
+  color: rgb(12 109 173 / var(--tw-text-opacity));
 }
 
 .hover\:text-primary-superlight:hover {

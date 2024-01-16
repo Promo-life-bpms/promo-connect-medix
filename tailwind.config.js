@@ -4,9 +4,9 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                "primary": "#134692",
-                "primary-dark": "#134692",
-                "primary-light": "#0B5A9D",
+                "primary": 'rgb(12,109,173)',
+                "primary-dark": 'rgb(12,109,173)',
+                "primary-light": 'rgb(164,190,223)',
                 "primary-superlight":"#1FA7DC",
                 "secondary": "#6B3F23",
                 "secondary-dark": "#6B3F23",
@@ -17,6 +17,9 @@ module.exports = {
             },
             borderColor: {
                 orange: '#FFA500',
+            },
+            fontFamily: {
+                sans: ['Arial', 'sans-serif'],
             },
         },
         borderColor: {
