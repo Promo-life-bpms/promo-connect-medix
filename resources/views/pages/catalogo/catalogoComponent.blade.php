@@ -4,7 +4,7 @@
             <div class="grid grid-cols-1 sm:grid-cols-8 text-slate-700 " wire:target="changeCategory">
                 @foreach ($categories as $categoria)
                     @if (
-                        $categoria->family != 'CABALLERO' ||
+                        strtoupper($categoria->family ) != 'CABALLERO' ||
                             $categoria->family != 'Boligrafos de Plastico' ||
                             $categoria->family != 'ESCOLARES')
                         <a class="py-1 text-center sm:border-l sm:border-slate-700 sm:last:border-r sm:text-center sm:font-semibold hover:cursor-pointer hover:bg-slate-200 rounded-sm {{ $categoria->id == $category ? 'bg-slate-200' : '' }}"
@@ -20,7 +20,7 @@
 
     <div class="container mx-auto max-w-6xl px-2">
         <div class="flex justify-center items-center mt-8 mb-8">
-            <img src="{{ asset('img/catalogo.png')}}" alt="catalogo" style="width:30%;">
+            <p class="font-bold text-4xl"> Catálogo</p>
         </div>
         <div id="accordion-collapse" data-accordion="collapse" wire:ignore>
             <h2 id="accordion-collapse-heading-3">
