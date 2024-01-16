@@ -355,8 +355,8 @@
     <div class="justify-content-between  grid grid-cols-1">
         {{--  @if (!$priceScales) --}}
         <div>
-            <h6 class="text-success"><strong>Precio Final por Articulo:</strong> $ {{  round($precioCalculado,2) }}</h6>
-            <h6 class="text-success"><strong>Precio Total:</strong> $ {{ round($precioTotal, 2)  }}</h6>
+            <h6 class="text-success"><strong>Precio Final por Articulo:</strong> $ {{ number_format($costoCalculado,2)}}</h6>
+            <h6 class="text-success"><strong>Precio Total:</strong> $ {{ number_format($costoTotal,2)}}</h6>
         </div>
         {{--  @endif --}}
         <div class="form-group m-0 mb-1 text-center">

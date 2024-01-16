@@ -191,7 +191,7 @@ class FormularioDeCotizacion extends Component
 
             $this->costoCalculado = $this->precio + ($precioDeTecnicaUsado * $this->colores) + $this->operacion;
             $this->costoTotal = $this->costoCalculado * $this->cantidad;
-
+            
             $this->precioCalculado = ($this->costoCalculado) / ((100 - 0.0625) / 100);
             $this->precioTotal = $this->precioCalculado *  $this->cantidad;
         }
