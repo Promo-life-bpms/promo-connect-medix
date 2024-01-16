@@ -5,14 +5,15 @@
         <div class="grid grid-cols-1 md:grid-cols-2 px-10 py-10 gap-y-10 gap-x-20">
             @if ($product->precio_unico)
                 @php
-                    $priceProduct = $product->price;
-
-                    if ($product->producto_promocion) {
+                    /* $priceProduct = $product->price; */
+                    $priceProduct = round($product->price * 0.9375, 2);
+                 
+                   /*  if ($product->producto_promocion) {
                         $priceProduct = round($priceProduct - $priceProduct * ($product->descuento / 100), 2);
                     } else {
                         $priceProduct = round($priceProduct - $priceProduct * ($product->provider->discount / 100), 2);
                     }
-                    $priceProduct = round($priceProduct / ((100 - $utilidad) / 100), 2);
+                    $priceProduct = round($priceProduct / ((100 - $utilidad) / 100), 2); */
                   
                 @endphp
             @endif

@@ -85,7 +85,7 @@
                             @endphp --}}
 
                             @php
-                                $precioTotal = round(($quote->precio_total ));
+                                $precioTotal = $quote->precio_total;
                             @endphp
                             <p class="font-bold text-lg">$ {{ number_format($precioTotal, 2, '.', ',') }} + IVA</p>
                                 <!-- Modal toggle -->
