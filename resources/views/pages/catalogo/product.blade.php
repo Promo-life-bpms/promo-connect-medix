@@ -5,8 +5,21 @@
         <div class="grid grid-cols-1 md:grid-cols-2 px-10 py-10 gap-y-10 gap-x-20">
             @if ($product->precio_unico)
                 @php
+
+                    if($product->provider_id == 1){
+                        /* FOR PROMOTIONAL */
+                        $priceProduct = ($product->price) * 0.93751;
+                    }else if($product->provider_id == 2){
+                        /* PROMO OPCION */
+                        $priceProduct = ($product->price) * 0.87502;
+                    }else if($product->provider_id == 3){
+                        /* INNOVATION */
+                        $priceProduct = ($product->price) * 1.2332;
+                    }else{
+                        /* OTRO */
+                        $priceProduct = ($product->price);
+                    }
                     /* $priceProduct = $product->price; */
-                    $priceProduct = round($product->price * 0.9375, 2);
                  
                    /*  if ($product->producto_promocion) {
                         $priceProduct = round($priceProduct - $priceProduct * ($product->descuento / 100), 2);
@@ -39,24 +52,24 @@
                             <thead>
                                 <tr>
                                     <th>Escala</th>
-                                    <th>Precio</th>
+                                   {{--  <th>Precio</th> --}}
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($product->precios as $precio)
+                                {{-- @foreach ($product->precios as $precio)
                                     @php
                                         $priceProduct = $product->price;
                                         if ($product->producto_promocion) {
-                                            $priceProduct = round($priceProduct - $priceProduct * ($product->descuento / 100), 2);
+                                            $priceProduct = number_format($priceProduct - $priceProduct * ($product->descuento / 100), 2);
                                         } else {
-                                            $priceProduct = round($priceProduct - $priceProduct * ($product->provider->discount / 100), 2);
+                                            $priceProduct = number_format($priceProduct - $priceProduct * ($product->provider->discount / 100), 2);
                                         }
                                     @endphp
                                     <tr>
                                         <td class="p-0">{{ $precio->escala }}</td>
-                                        <td class="p-0">$ {{ $priceProduct }}</td>
+                                        <td class="p-0">$ {{ number_format($priceProduct,2) }}</td>
                                     </tr>
-                                @endforeach
+                                @endforeach --}}
                             </tbody>
                         </table>
                     @endif
@@ -88,7 +101,26 @@
                 </p>
                 <div class="col-start-1 col-span-5 mt-4 space-y-2 px-6">
                     <p class="font-normal"> <strong>Precio Unitario: </strong>$
-                        {{ $priceProduct }}</p>
+
+                        @php
+                          if($product->provider_id == 1){
+                            /* FOR PROMOTIONAL */
+                            $priceProduct = ($product->price) * 0.93751;
+                        }else if($product->provider_id == 2){
+                            /* PROMO OPCION */
+                            $priceProduct = ($product->price) * 0.87502;
+                        }else if($product->provider_id == 3){
+                            /* INNOVATION */
+                            $priceProduct = ($product->price) * 1.2332;
+                        }else{
+                            /* OTRO */
+                            $priceProduct = ($product->price);
+                        }
+                        @endphp
+
+                        {{ 
+                            number_format($priceProduct,2);  
+                        }}</p>
                     <p class="font-normal"><strong>Descripcion:</strong></p>
                     <p class="font-normal">{{ $product->description }}</p>
 

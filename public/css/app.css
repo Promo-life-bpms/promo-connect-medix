@@ -3126,10 +3126,6 @@ input:checked + .toggle-bg {
     grid-template-columns: repeat(7, minmax(0, 1fr));
   }
 
-  .sm\:grid-cols-8 {
-    grid-template-columns: repeat(8, minmax(0, 1fr));
-  }
-
   .sm\:flex-row {
     flex-direction: row;
   }

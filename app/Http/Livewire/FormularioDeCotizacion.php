@@ -188,12 +188,25 @@ class FormularioDeCotizacion extends Component
             $precioDeTecnicaUsado = $precioDeTecnica;
             if ($this->newPriceTechnique != null && $this->newPriceTechnique >= 0)
                 $precioDeTecnicaUsado = $this->newPriceTechnique;
-
+           
             $this->costoCalculado = $this->precio + ($precioDeTecnicaUsado * $this->colores) + $this->operacion;
             $this->costoTotal = $this->costoCalculado * $this->cantidad;
             
-            $this->precioCalculado = ($this->costoCalculado) / ((100 - 0.0625) / 100);
-            $this->precioTotal = $this->precioCalculado *  $this->cantidad;
+            if($this->product->provider_id == 1){
+                /* FOR PROMOTIONAL */
+                $this->costoCalculado = ($this->costoCalculado) / ((100 - 0.0625) / 100);
+            }else if($this->product->provider_id == 2){
+                /* PROMO OPCION */
+                $this->costoCalculado = ($this->costoCalculado) / 1.07156;
+            }else if($this->product->provider_id == 3){
+                /* INNOVATION */
+                $this->costoCalculado = ($this->costoCalculado) *1.315481;
+            }else{
+                /* OTRO */
+                $this->costoCalculado = ($this->costoCalculado) / ((100 - 0.9375) / 100);
+            }
+            $this->costoTotal = $this->costoCalculado *  $this->cantidad;
+
         }
 
         $this->precioDeTecnica = $precioDeTecnica;
