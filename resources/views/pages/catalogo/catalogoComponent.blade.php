@@ -118,8 +118,22 @@
                                 }
                                 $priceProduct = round($priceProduct / ((100 - $utilidad) / 100), 2); */
 
-                                $priceProduct = round($row->price * 0.9375, 2);
+                                if($row->provider_id == 1){
+                                    /* FOR PROMOTIONAL */
+                                    $priceProduct = ($row->price) * 0.93751;
+                                }else if($row->provider_id == 2){
+                                    /* PROMO OPCION */
 
+                                    $priceProduct = ($row->price) * 0.87502;
+                                }else if($row->provider_id == 3){
+                                    /* INNOVATION */
+                                    $priceProduct = ($row->price) * 1.2329;
+                                }else{
+                                    /* OTRO */
+                                    $priceProduct = ($row->price);
+                                }
+                                /* $priceProduct = round($row->price * 0.9375, 2); */
+                      
                               
                             @endphp
                             <div class="w-full flex justify-center  sm:p-5 sm:bg-white  text-center">
@@ -133,7 +147,7 @@
                                     <h5 class="capitalize font-bold m-0">
                                         {{ Str::limit($row->name, 22, '...') }}</h5>
                                     <p class="m-0 font-semibold">$
-                                        {{ $priceProduct }}</p>
+                                        {{number_format($priceProduct,2)}}</p>
                                 </div>
                                 <a href="{{ route('show.product', ['product' => $row->id]) }}"
                                     class="block w-full bg-primary hover:bg-primary-dark text-white text-center rounded-sm font-semibold py-2 rounded-xl">
