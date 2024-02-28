@@ -197,7 +197,7 @@ class FormularioDeCotizacion extends Component
                 $this->costoCalculado = ($this->costoCalculado) / ((100 - 0.0625) / 100);
             }else if($this->product->provider_id == 2){
                 /* PROMO OPCION */
-                $newPrice = ($this->costoCalculado) / 0.7505;
+                $newPrice = ($this->costoCalculado) / 0.7500;
 
                 $productType = $this->product->productAttributes->where('attribute', 'Tipo Descuento')->first();
         

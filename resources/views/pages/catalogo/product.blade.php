@@ -14,12 +14,12 @@
                         $product_type = $product->productAttributes->where('attribute', 'Tipo Descuento')->first();
                         
                         $priceProduct = $product->price;
-                        $newPrice = ($product->price) * 1.249;
+                        $newPrice = ($product->price) * 1.250;
                         if ($product_type && $product_type->value == 'Normal') {
                             
                             $priceProduct = round($newPrice - $newPrice * (30 / 100), 2);
                         }else{
-                            $priceProduct = ($product->price) * 1.249;
+                            $priceProduct = ($product->price) * 1.250;
                         }
                     }else if($product->provider_id == 3){
                         /* INNOVATION */
@@ -120,12 +120,12 @@
                             $product_type = $product->productAttributes->where('attribute', 'Tipo Descuento')->first();
                             
                             $priceProduct = $product->price;
-                            $newPrice = ($product->price) * 1.249;
+                            $newPrice = ($product->price) * 1.250;
                             if ($product_type && $product_type->value == 'Normal') {
                                 
                                 $priceProduct = round($newPrice - $newPrice * (30 / 100), 2);
                             }else{
-                                $priceProduct = ($product->price) * 1.249;
+                                $priceProduct = ($product->price) * 1.250;
                             }
                         }else if($product->provider_id == 3){
                             /* INNOVATION */

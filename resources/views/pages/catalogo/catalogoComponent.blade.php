@@ -128,12 +128,12 @@
                                     $product_type = $row->productAttributes->where('attribute', 'Tipo Descuento')->first();
                                     
                                     $priceProduct = $row->price;
-                                    $newPrice = ($row->price) * 1.249;
+                                    $newPrice = ($row->price) * 1.250;
                                     if ($product_type && $product_type->value == 'Normal') {
                                         
                                         $priceProduct = round($newPrice - $newPrice * (30 / 100), 2);
                                     }else{
-                                        $priceProduct = ($row->price) * 1.249;
+                                        $priceProduct = ($row->price) * 1.250;
                                     }
                                 }else if($row->provider_id == 3){
                                     /* INNOVATION */
