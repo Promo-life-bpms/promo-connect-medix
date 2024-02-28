@@ -192,8 +192,8 @@
                     </tr>
                     <tr>
                         <td colspan="1"> {{ $product->cantidad}} piezas</td>
-                        <td colspan="1"> {{ $product->precio_unitario * 1.2}} </td>
-                        <td colspan="1"> {{ $product->precio_total * 1.2 }}</td>
+                        <td colspan="1"> {{ $product->precio_unitario }} </td>
+                        <td colspan="1"> {{ $product->precio_total }}</td>
                     </tr>
                 </table>
             <br>

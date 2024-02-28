@@ -111,6 +111,7 @@
                             class="flex sm:block gap-2 sm:bg-transparent bg-white rounded-md sm:rounded-none p-2 sm:p-0">
                             @php
                                 /* $priceProduct = $row->price;
+                                
                                 if ($row->producto_promocion) {
                                     $priceProduct = round($priceProduct - $priceProduct * ($row->descuento / 100), 2);
                                 } else {
@@ -118,13 +119,22 @@
                                 }
                                 $priceProduct = round($priceProduct / ((100 - $utilidad) / 100), 2); */
 
+                                
                                 if($row->provider_id == 1){
                                     /* FOR PROMOTIONAL */
                                     $priceProduct = ($row->price) * 0.93751;
                                 }else if($row->provider_id == 2){
                                     /* PROMO OPCION */
-
-                                    $priceProduct = ($row->price) * 0.87502;
+                                    $product_type = $row->productAttributes->where('attribute', 'Tipo Descuento')->first();
+                                    
+                                    $priceProduct = $row->price;
+                                    $newPrice = ($row->price) * 1.249;
+                                    if ($product_type && $product_type->value == 'Normal') {
+                                        
+                                        $priceProduct = round($newPrice - $newPrice * (30 / 100), 2);
+                                    }else{
+                                        $priceProduct = ($row->price) * 1.249;
+                                    }
                                 }else if($row->provider_id == 3){
                                     /* INNOVATION */
                                     $priceProduct = ($row->price) * 1.2329;

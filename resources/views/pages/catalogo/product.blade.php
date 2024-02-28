@@ -11,7 +11,16 @@
                         $priceProduct = ($product->price) * 0.93751;
                     }else if($product->provider_id == 2){
                         /* PROMO OPCION */
-                        $priceProduct = ($product->price) * 0.87502;
+                        $product_type = $product->productAttributes->where('attribute', 'Tipo Descuento')->first();
+                        
+                        $priceProduct = $product->price;
+                        $newPrice = ($product->price) * 1.249;
+                        if ($product_type && $product_type->value == 'Normal') {
+                            
+                            $priceProduct = round($newPrice - $newPrice * (30 / 100), 2);
+                        }else{
+                            $priceProduct = ($product->price) * 1.249;
+                        }
                     }else if($product->provider_id == 3){
                         /* INNOVATION */
                         $priceProduct = ($product->price) * 1.2332;
@@ -108,7 +117,16 @@
                             $priceProduct = ($product->price) * 0.93751;
                         }else if($product->provider_id == 2){
                             /* PROMO OPCION */
-                            $priceProduct = ($product->price) * 0.87502;
+                            $product_type = $product->productAttributes->where('attribute', 'Tipo Descuento')->first();
+                            
+                            $priceProduct = $product->price;
+                            $newPrice = ($product->price) * 1.249;
+                            if ($product_type && $product_type->value == 'Normal') {
+                                
+                                $priceProduct = round($newPrice - $newPrice * (30 / 100), 2);
+                            }else{
+                                $priceProduct = ($product->price) * 1.249;
+                            }
                         }else if($product->provider_id == 3){
                             /* INNOVATION */
                             $priceProduct = ($product->price) * 1.2332;

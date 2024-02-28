@@ -197,7 +197,16 @@ class FormularioDeCotizacion extends Component
                 $this->costoCalculado = ($this->costoCalculado) / ((100 - 0.0625) / 100);
             }else if($this->product->provider_id == 2){
                 /* PROMO OPCION */
-                $this->costoCalculado = ($this->costoCalculado) / 1.07156;
+                $newPrice = ($this->costoCalculado) / 0.7505;
+
+                $productType = $this->product->productAttributes->where('attribute', 'Tipo Descuento')->first();
+        
+                if ($productType && $productType->value == 'Normal') {
+                    $this->costoCalculado = round($newPrice - $newPrice * (30 / 100), 2);
+                } else {
+                    $this->costoCalculado = $newPrice;
+                }
+                
             }else if($this->product->provider_id == 3){
                 /* INNOVATION */
                 $this->costoCalculado = ($this->costoCalculado) *1.315481;
